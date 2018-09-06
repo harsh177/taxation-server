@@ -1,0 +1,12 @@
+.git
+.classpath
+.gradle
+.project
+.settings
+.springBeans
+bin/
+build/
+gradle/
+logs/
+uploads/
+libs/
