@@ -41,5 +41,12 @@ public class PropertyType  implements Serializable{
 		this.name = name;
 	}
 
-	
+	public PropertyType(Integer propertyTypeId, String name) {
+		this.propertyTypeId = propertyTypeId;
+		this.name = name;
+	}
+
+	public PropertyType(){
+
+	}
 }

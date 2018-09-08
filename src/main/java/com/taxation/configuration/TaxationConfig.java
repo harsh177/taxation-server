@@ -1,15 +1,13 @@
 package com.taxation.configuration;
 
+import com.taxation.service.impl.*;
+import com.taxation.service.interfaces.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.taxation.filter.MyFilter;
-import com.taxation.service.impl.PersonService;
-import com.taxation.service.impl.PropertyService;
-import com.taxation.service.interfaces.IPersonService;
-import com.taxation.service.interfaces.IPropertyService;
 
 @Configuration
 public class TaxationConfig {
@@ -25,7 +23,19 @@ public class TaxationConfig {
 	public IPropertyService getPropertyService() {
 		return new PropertyService();
 	}
-	
+
+	@Bean
+	@Qualifier("seedService")
+	public ISeedService getSeedService(){ return new SeedService();}
+
+	@Bean
+	@Qualifier("propertyTypeService")
+	public IPropertyTypeService getPropertyTypeService(){	return  new PropertyTypeService();}
+
+	@Bean
+	@Qualifier("propertyUsageService")
+	public IPropertyUsageService getPropertyUsageServcie(){ return  new PropertyUsageService();}
+
 	@Bean
 	public FilterRegistrationBean<MyFilter> myFilterBean() {
 		final FilterRegistrationBean<MyFilter> filterRegBean = new FilterRegistrationBean<MyFilter>();

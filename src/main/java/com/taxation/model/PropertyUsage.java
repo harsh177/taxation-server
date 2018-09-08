@@ -41,5 +41,10 @@ public class PropertyUsage  implements Serializable{
 		this.name = name;
 	}
 
-	
+	public PropertyUsage(){}
+
+	public PropertyUsage(Integer propertyUsageId, String name) {
+		this.propertyUsageId = propertyUsageId;
+		this.name = name;
+	}
 }

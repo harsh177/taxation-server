@@ -14,4 +14,7 @@ public class URLConstants {
 	public static final String PROPERTY_ADD = "/property/add";
 	public static final String PROPERTY_GET_ALL = "/property/getAll";
 
+	// SeedController URL's
+	public static final String SEED_ALL = "/seed/seedAll";
+
 }
