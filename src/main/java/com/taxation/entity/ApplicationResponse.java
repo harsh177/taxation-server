@@ -35,5 +35,9 @@ public class ApplicationResponse {
 		this.status = status;
 		this.message = message;
 	}
+	public ApplicationResponse(Object data){
+		super();
+		this.data = data;
+	}
 
 }

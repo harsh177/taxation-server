@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface IPropertyTypeService {
     public void saveAll(List<PropertyType> propertyTypes);
+    public List<PropertyType> getAllPropertyTypes();
 }

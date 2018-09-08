@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface IPropertyUsageService {
     public void saveAll(List<PropertyUsage> propertyUsageList);
-}
+
+    public List<PropertyUsage> getAllPropertyUsages();
+    }
+

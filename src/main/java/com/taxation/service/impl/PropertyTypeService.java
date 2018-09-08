@@ -17,4 +17,11 @@ public class PropertyTypeService implements IPropertyTypeService {
     public void saveAll(List<PropertyType> propertyTypes) {
         iPropertyTypeDao.saveAll(propertyTypes);
     }
+
+    @Override
+    public List<PropertyType> getAllPropertyTypes() {
+        return iPropertyTypeDao.findAll();
+    }
+
+
 }

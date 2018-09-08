@@ -48,6 +48,10 @@ public class SeedService implements ISeedService {
         defaultPropertyUsages.add(propertyUsage3);
         PropertyUsage propertyUsage4 = new PropertyUsage(4,"ANIMAL HUSBANDRY");
         defaultPropertyUsages.add(propertyUsage4);
+        PropertyUsage propertyUsage5 = new PropertyUsage(5,"WAREHOUSE");
+        defaultPropertyUsages.add(propertyUsage5);
+        PropertyUsage propertyUsage6 = new PropertyUsage(6,"OTHERS");
+        defaultPropertyUsages.add(propertyUsage6);
         propertyUsageService.saveAll(defaultPropertyUsages);
 
         List<Tax> defaultTaxes = new ArrayList<>();
@@ -61,6 +65,18 @@ public class SeedService implements ISeedService {
         SeedAllResponse seedAllResponse = new SeedAllResponse(defaultPropertyTypes,defaultPropertyUsages,defaultTaxes);
         return seedAllResponse;
     }
+
+    @Override
+    public List<PropertyType> getAllPropertyTypes() {
+        return propertyTypeService.getAllPropertyTypes();
+    }
+
+    @Override
+    public List<PropertyUsage> getAllPropertyUsages() {
+        return propertyUsageService.getAllPropertyUsages();
+    }
+
+
 }
 
 //        --insert into property_usage values(1,'FAMILY');

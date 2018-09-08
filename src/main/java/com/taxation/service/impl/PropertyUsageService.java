@@ -16,4 +16,11 @@ public class PropertyUsageService implements IPropertyUsageService {
     public void saveAll(List<PropertyUsage> propertyUsageList) {
         iPropertyUsageDao.saveAll(propertyUsageList);
     }
+
+    @Override
+    public List<PropertyUsage> getAllPropertyUsages() {
+        return iPropertyUsageDao.findAll();
+    }
+
+
 }

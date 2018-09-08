@@ -4,16 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="property")
@@ -87,28 +78,28 @@ public class Property  implements Serializable{
 	@OneToMany
 	@JoinTable(name="property_usage_mapping",joinColumns=@JoinColumn(name="property_id"),
 	inverseJoinColumns=@JoinColumn(name="property_usage_id"))
-	private Collection<PropertyUsage> propertyUsage = new ArrayList<>();
+	private Collection<PropertyUsage> propertyUsages = new ArrayList<>();
 	
 	@OneToMany
 	@JoinTable(name="property_type_mapping",joinColumns=@JoinColumn(name="property_id"),
 	inverseJoinColumns=@JoinColumn(name="property_type_id"))
-	private Collection<PropertyType> propertyType = new ArrayList<>();
+	private Collection<PropertyType> propertyTypes = new ArrayList<>();
 	
 
-	public Collection<PropertyUsage> getPropertyUsage() {
-		return propertyUsage;
+	public Collection<PropertyUsage> getPropertyUsages() {
+		return propertyUsages;
 	}
 
-	public void setPropertyUsage(Collection<PropertyUsage> propertyUsage) {
-		this.propertyUsage = propertyUsage;
+	public void setPropertyUsages(Collection<PropertyUsage> propertyUsages) {
+		this.propertyUsages = propertyUsages;
 	}
 
-	public Collection<PropertyType> getPropertyType() {
-		return propertyType;
+	public Collection<PropertyType> getPropertyTypes() {
+		return propertyTypes;
 	}
 
-	public void setPropertyType(Collection<PropertyType> propertyType) {
-		this.propertyType = propertyType;
+	public void setPropertyTypes(Collection<PropertyType> propertyTypes) {
+		this.propertyTypes = propertyTypes;
 	}
 
 	public Integer getPropertyId() {
@@ -285,8 +276,8 @@ public class Property  implements Serializable{
 				", waterBillDescription='" + waterBillDescription + '\'' +
 				", otherDescription='" + otherDescription + '\'' +
 				", person=" + person +
-				", propertyUsage=" + propertyUsage +
-				", propertyType=" + propertyType +
+				", propertyUsages=" + propertyUsages +
+				", propertyTypes=" + propertyTypes +
 				'}';
 	}
 }

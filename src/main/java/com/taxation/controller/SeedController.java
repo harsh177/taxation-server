@@ -30,4 +30,15 @@ public class SeedController {
     public ResponseEntity<ApplicationResponse> seedAll() {
         return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(seedService.seedAll(),true,"Default Data Feeded"), HttpStatus.OK);
     }
+
+    @RequestMapping(value = URLConstants.GET_PROPERTY_TYPES, method = RequestMethod.GET, produces = ApplicationConstants.APP_JSON)
+    public ResponseEntity<ApplicationResponse> getAllPropertyTypes() {
+        return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(seedService.getAllPropertyTypes()), HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = URLConstants.GET_PROPERTY_USAGES, method = RequestMethod.GET, produces = ApplicationConstants.APP_JSON)
+    public ResponseEntity<ApplicationResponse> getAllPropertyUsages() {
+        return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(seedService.getAllPropertyUsages()), HttpStatus.OK);
+    }
 }
