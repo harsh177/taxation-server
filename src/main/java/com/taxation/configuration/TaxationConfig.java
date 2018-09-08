@@ -1,5 +1,6 @@
 package com.taxation.configuration;
 
+import com.taxation.dao.interfaces.ITaxDao;
 import com.taxation.service.impl.*;
 import com.taxation.service.interfaces.*;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -35,6 +36,10 @@ public class TaxationConfig {
 	@Bean
 	@Qualifier("propertyUsageService")
 	public IPropertyUsageService getPropertyUsageServcie(){ return  new PropertyUsageService();}
+
+	@Bean
+	@Qualifier("taxService")
+	public ITaxService getTaxService(){ return new TaxService();}
 
 	@Bean
 	public FilterRegistrationBean<MyFilter> myFilterBean() {

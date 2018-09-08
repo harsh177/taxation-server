@@ -26,7 +26,7 @@ public class Tax  implements Serializable{
 	private String name;
 
 	@Column(length = 20)
-	private String value;
+	private Float value;
 
 	public Integer getTaxId() {
 		return taxId;
@@ -34,14 +34,6 @@ public class Tax  implements Serializable{
 
 	public void setTaxId(Integer taxId) {
 		this.taxId = taxId;
-	}
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
 	}
 
 	public String getName() {
@@ -52,4 +44,27 @@ public class Tax  implements Serializable{
 		this.name = name;
 	}
 
+	public Float getValue() {
+		return value;
+	}
+
+	public void setValue(Float value) {
+		this.value = value;
+	}
+
+	public Tax(Integer taxId, String name, Float value) {
+		this.taxId = taxId;
+		this.name = name;
+		this.value = value;
+	}
+	public Tax(){}
+
+	@Override
+	public String toString() {
+		return "Tax{" +
+				"taxId=" + taxId +
+				", name='" + name + '\'' +
+				", value=" + value +
+				'}';
+	}
 }

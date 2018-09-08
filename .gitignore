@@ -4,6 +4,7 @@
 .project
 .settings
 .springBeans
+.idea/
 bin/
 build/
 gradle/

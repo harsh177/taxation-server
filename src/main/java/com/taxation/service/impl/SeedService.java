@@ -2,10 +2,12 @@ package com.taxation.service.impl;
 
 import com.taxation.model.PropertyType;
 import com.taxation.model.PropertyUsage;
+import com.taxation.model.Tax;
 import com.taxation.resource.SeedAllResponse;
 import com.taxation.service.interfaces.IPropertyTypeService;
 import com.taxation.service.interfaces.IPropertyUsageService;
 import com.taxation.service.interfaces.ISeedService;
+import com.taxation.service.interfaces.ITaxService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -18,6 +20,9 @@ public class SeedService implements ISeedService {
 
     @Autowired
     IPropertyUsageService propertyUsageService;
+
+    @Autowired
+    ITaxService taxService;
 
     @Override
     public SeedAllResponse seedAll() {
@@ -44,7 +49,16 @@ public class SeedService implements ISeedService {
         PropertyUsage propertyUsage4 = new PropertyUsage(4,"ANIMAL HUSBANDRY");
         defaultPropertyUsages.add(propertyUsage4);
         propertyUsageService.saveAll(defaultPropertyUsages);
-        SeedAllResponse seedAllResponse = new SeedAllResponse(defaultPropertyTypes,defaultPropertyUsages);
+
+        List<Tax> defaultTaxes = new ArrayList<>();
+        Tax tax1 = new Tax(1,"HOUSE",(float)50);
+        defaultTaxes.add(tax1);
+        Tax tax2 = new Tax(2,"WATER",(float)100);
+        defaultTaxes.add(tax2);
+        taxService.saveAll(defaultTaxes);
+
+
+        SeedAllResponse seedAllResponse = new SeedAllResponse(defaultPropertyTypes,defaultPropertyUsages,defaultTaxes);
         return seedAllResponse;
     }
 }
