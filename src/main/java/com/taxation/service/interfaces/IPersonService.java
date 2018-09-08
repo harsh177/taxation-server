@@ -12,5 +12,7 @@ public interface IPersonService {
 	public Person getPersonBySamagraId(String id);
 	
 	public Person getPersonByPhoneNumber(String number);
+
+	public String getSamagraIdByPhoneNumber(String phoneNumber);
 	
 }

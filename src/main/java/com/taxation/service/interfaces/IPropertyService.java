@@ -12,4 +12,8 @@ public interface IPropertyService {
 	public void payTax(PayTaxRequest payTaxRequest) throws Exception;
 
 	public void createProperty(Property property);
+
+	public List<Property> findBySamagraId(String samagraId);
+
+	public List<Property> findByPhoneNumber(String phoneNumber) throws Exception;
 }

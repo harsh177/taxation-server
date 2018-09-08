@@ -42,14 +42,16 @@ public class PersonController {
 	}
 
 	@RequestMapping(value = URLConstants.PERSON_GET_SAMAGRA, method = RequestMethod.GET, produces = ApplicationConstants.APP_JSON)
-	public ResponseEntity<ApplicationResponse> getPersonBySamagraId(@PathVariable String id) {
-		Person person = personService.getPersonBySamagraId(id);
-		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(person,true,null), HttpStatus.OK);
+	public ResponseEntity<ApplicationResponse> getPersonBySamagraId(@PathVariable String samagraId) {
+		Person person = personService.getPersonBySamagraId(samagraId);
+		if(person==null)return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(person,true,"No member found with this SAMAGRA ID"), HttpStatus.OK);
+		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(person,true,"Member found"), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = URLConstants.PERSON_GET_PHONE, method = RequestMethod.GET, produces = ApplicationConstants.APP_JSON)
 	public ResponseEntity<ApplicationResponse> getPersonByPhoneNumber(@PathVariable String phone) {
 		Person person = personService.getPersonByPhoneNumber(phone);
-		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(person,true,null), HttpStatus.OK);
+		if(person==null)return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(person,true,"No member found with this Phone number"), HttpStatus.OK);
+		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(person,true,"Member found"), HttpStatus.OK);
 	}
 }

@@ -70,7 +70,34 @@ public class Property  implements Serializable{
 	
 	@Column(name = "other_description",length = 200)	
 	private String otherDescription;
-	
+
+	public Boolean getResidential() {
+		return isResidential;
+	}
+
+	public void setResidential(Boolean residential) {
+		isResidential = residential;
+	}
+
+	public Boolean getWaterConnected() {
+		return isWaterConnected;
+	}
+
+	public void setWaterConnected(Boolean waterConnected) {
+		isWaterConnected = waterConnected;
+	}
+
+	public Boolean getActive() {
+		return isActive;
+	}
+
+	public void setActive(Boolean active) {
+		isActive = active;
+	}
+
+	@Column(name = "is_active")
+	private Boolean isActive;
+
 	@ManyToOne
 	@JoinColumn(name="person_id")
 	private Person person;

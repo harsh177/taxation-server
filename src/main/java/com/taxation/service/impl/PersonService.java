@@ -34,5 +34,10 @@ public class PersonService implements IPersonService {
 		// TODO Auto-generated method stub
 		return iPersonDAO.findByPhoneNumber(number);
 	}
-	
+
+	@Override
+	public String getSamagraIdByPhoneNumber(String phoneNumber) {
+		return iPersonDAO.getSamagraIdByPhoneNumber(phoneNumber);
+	}
+
 }
