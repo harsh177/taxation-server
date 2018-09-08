@@ -27,7 +27,7 @@ public class SeedController {
     private ISeedService seedService;
 
     @RequestMapping(value = URLConstants.SEED_ALL, method = RequestMethod.GET, produces = ApplicationConstants.APP_JSON)
-    public ResponseEntity<ApplicationResponse> seeAll() {
+    public ResponseEntity<ApplicationResponse> seedAll() {
         return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(seedService.seedAll(),true,"Default Data Feeded"), HttpStatus.OK);
     }
 }

@@ -1,4 +1,4 @@
-package com.taxation.response;
+package com.taxation.resource;
 
 import com.taxation.model.PropertyType;
 import com.taxation.model.PropertyUsage;

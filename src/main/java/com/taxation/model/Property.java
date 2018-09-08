@@ -38,7 +38,7 @@ public class Property  implements Serializable{
 	@Column(length = 50)
 	private String city;
 	
-	@Column(length = 6)
+	@Column(length = 8)
 	private String pincode;
 
 	@Column(name = "samagra_id",length = 9)
@@ -262,6 +262,31 @@ public class Property  implements Serializable{
 	public void setPerson(Person person) {
 		this.person = person;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Property{" +
+				"propertyId=" + propertyId +
+				", propertyNumber='" + propertyNumber + '\'' +
+				", area='" + area + '\'' +
+				", city='" + city + '\'' +
+				", pincode='" + pincode + '\'' +
+				", samagraId='" + samagraId + '\'' +
+				", isResidential=" + isResidential +
+				", residentName='" + residentName + '\'' +
+				", length=" + length +
+				", width=" + width +
+				", eastLandmark='" + eastLandmark + '\'' +
+				", westLandmark='" + westLandmark + '\'' +
+				", northLandmark='" + northLandmark + '\'' +
+				", southLandmark='" + southLandmark + '\'' +
+				", sharedWallDescription='" + sharedWallDescription + '\'' +
+				", isWaterConnected=" + isWaterConnected +
+				", waterBillDescription='" + waterBillDescription + '\'' +
+				", otherDescription='" + otherDescription + '\'' +
+				", person=" + person +
+				", propertyUsage=" + propertyUsage +
+				", propertyType=" + propertyType +
+				'}';
+	}
 }

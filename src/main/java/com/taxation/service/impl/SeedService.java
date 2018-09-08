@@ -1,9 +1,8 @@
 package com.taxation.service.impl;
 
-import com.taxation.dao.interfaces.IPropertyUsageDao;
 import com.taxation.model.PropertyType;
 import com.taxation.model.PropertyUsage;
-import com.taxation.response.SeedAllResponse;
+import com.taxation.resource.SeedAllResponse;
 import com.taxation.service.interfaces.IPropertyTypeService;
 import com.taxation.service.interfaces.IPropertyUsageService;
 import com.taxation.service.interfaces.ISeedService;

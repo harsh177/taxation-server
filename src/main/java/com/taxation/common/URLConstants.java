@@ -13,6 +13,7 @@ public class URLConstants {
 	// PropertyController URL's
 	public static final String PROPERTY_ADD = "/property/add";
 	public static final String PROPERTY_GET_ALL = "/property/getAll";
+	public static final String PAY_TAX = "/property/payTax";
 
 	// SeedController URL's
 	public static final String SEED_ALL = "/seed/seedAll";

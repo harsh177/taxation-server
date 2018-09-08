@@ -49,8 +49,8 @@ public class PersonControllerTest {
 
     	MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.post("/api/tag/add").header("Origin","*").accept(MediaType.APPLICATION_JSON).contentType(MediaType.APPLICATION_JSON).content(new Gson().toJson(tag)))
     	.andReturn();
-    	String response = mvcResult.getResponse().getContentAsString();
-    	Tag tag1 = new Gson().fromJson(response, Tag.class);
+    	String resource = mvcResult.getResponse().getContentAsString();
+    	Tag tag1 = new Gson().fromJson(resource, Tag.class);
     	assertEquals(tag.getName(), tag1.getName());
 
     	}

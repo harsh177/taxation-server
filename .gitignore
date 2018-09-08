@@ -10,3 +10,4 @@ gradle/
 logs/
 uploads/
 libs/
+out/
