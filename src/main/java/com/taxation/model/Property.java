@@ -3,8 +3,21 @@ package com.taxation.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name="property")
@@ -102,16 +115,29 @@ public class Property  implements Serializable{
 	@JoinColumn(name="person_id")
 	private Person person;
 	
-	@OneToMany
+	@ManyToMany
 	@JoinTable(name="property_usage_mapping",joinColumns=@JoinColumn(name="property_id",unique = false),
 	inverseJoinColumns=@JoinColumn(name="property_usage_id",unique = false))
 	private Collection<PropertyUsage> propertyUsages = new ArrayList<>();
 	
-	@OneToMany
+	@ManyToMany
 	@JoinTable(name="property_type_mapping",joinColumns=@JoinColumn(name="property_id",unique = false),
 	inverseJoinColumns=@JoinColumn(name="property_type_id",unique = false))
 	private Collection<PropertyType> propertyTypes = new ArrayList<>();
 	
+	@CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at", nullable = false)
+    private Date createdAt;
+
+	
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
 
 	public Collection<PropertyUsage> getPropertyUsages() {
 		return propertyUsages;
