@@ -2,14 +2,15 @@ package com.taxation.dao.interfaces;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.taxation.model.Person;
 
 @Repository
 public interface IPersonDAO extends JpaRepository<Person,Integer> {
-    @Query("select e from Person e where e.samagraId = ?1")
-    Person findBySamagraId(String id);
+    @Query("select e from Person e where e.samagraId = :samagraId")
+    Person findBySamagraId(@Param("samagraId") String samagraId);
 
     @Query("select e from Person e where e.phone = ?1")
     Person findByPhoneNumber(String phone);

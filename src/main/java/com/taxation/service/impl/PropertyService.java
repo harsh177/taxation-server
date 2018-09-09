@@ -21,6 +21,7 @@ public class PropertyService implements IPropertyService {
 	@Autowired
 	private IPropertyDAO iPropertyDAO;
 
+	@Autowired
 	private IPersonService personService;
 	
 
@@ -60,12 +61,9 @@ public class PropertyService implements IPropertyService {
 
 	@Override
 	public List<Property> findByPhoneNumber(String phoneNumber) throws Exception {
-		try {
-			String samagraId = personService.getSamagraIdByPhoneNumber(phoneNumber);
-			return findBySamagraId(samagraId);
-		}catch (Exception e){
-			throw new Exception("No member exists with phone number: "+phoneNumber);
-		}
+		String samagraId = personService.getSamagraIdByPhoneNumber(phoneNumber);
+		if(samagraId==null) throw new Exception("No property found for phone :"+phoneNumber);
+		return findBySamagraId(samagraId);
 	}
 
 

@@ -73,7 +73,7 @@ public class PropertyController {
 
 	@RequestMapping(value = URLConstants.PROPERTY_GET_BY_PHONE, method = RequestMethod.GET, produces = ApplicationConstants.APP_JSON)
 	public ResponseEntity<ApplicationResponse> getPropertyByPhoneNumber(@PathVariable String phoneNumber) throws Exception {
-		List<Property> properties = propertyService.findByPhoneNumber(phoneNumber);
+			List<Property> properties = propertyService.findByPhoneNumber(phoneNumber);
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(properties,true,null), HttpStatus.OK);
 	}
 
