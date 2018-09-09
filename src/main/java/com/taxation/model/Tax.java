@@ -18,7 +18,7 @@ public class Tax  implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
 	@Column(name = "tax_id")
 	private Integer taxId;
 	
@@ -52,8 +52,7 @@ public class Tax  implements Serializable{
 		this.value = value;
 	}
 
-	public Tax(Integer taxId, String name, Float value) {
-		this.taxId = taxId;
+	public Tax( String name, Float value) {
 		this.name = name;
 		this.value = value;
 	}

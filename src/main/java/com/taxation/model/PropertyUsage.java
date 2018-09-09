@@ -18,11 +18,11 @@ public class PropertyUsage  implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
 	@Column(name = "property_usage_id")
 	private Integer propertyUsageId;
 	
-	@Column(length = 20,unique = true)
+	@Column(length = 20)
 	private String name;
 
 	public Integer getPropertyUsageId() {
@@ -43,8 +43,7 @@ public class PropertyUsage  implements Serializable{
 
 	public PropertyUsage(){}
 
-	public PropertyUsage(Integer propertyUsageId, String name) {
-		this.propertyUsageId = propertyUsageId;
+	public PropertyUsage(String name) {
 		this.name = name;
 	}
 }

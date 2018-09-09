@@ -11,9 +11,9 @@ public class Panchayat {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "id")
-    private Integer panchayatId;
+    private Long panchayatId;
 
     @Column(length = 50)
     @NotBlank
@@ -33,11 +33,11 @@ public class Panchayat {
         return serialVersionUID;
     }
 
-    public Integer getPanchayatId() {
+    public Long getPanchayatId() {
         return panchayatId;
     }
 
-    public void setPanchayatId(Integer panchayatId) {
+    public void setPanchayatId(Long panchayatId) {
         this.panchayatId = panchayatId;
     }
 

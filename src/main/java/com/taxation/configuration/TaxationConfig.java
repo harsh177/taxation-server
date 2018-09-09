@@ -42,6 +42,10 @@ public class TaxationConfig {
 	public ITaxService getTaxService(){ return new TaxService();}
 
 	@Bean
+	@Qualifier("taxDetailsService")
+	public ITaxDetailsService getTaxDetailsService(){ return new TaxDetailsService();}
+
+	@Bean
 	public FilterRegistrationBean<MyFilter> myFilterBean() {
 		final FilterRegistrationBean<MyFilter> filterRegBean = new FilterRegistrationBean<MyFilter>();
 		filterRegBean.setFilter(new MyFilter());

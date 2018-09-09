@@ -16,7 +16,7 @@ public class Property  implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
 	@Column(name = "property_id")
 	private Integer propertyId;
 	
@@ -103,13 +103,13 @@ public class Property  implements Serializable{
 	private Person person;
 	
 	@OneToMany
-	@JoinTable(name="property_usage_mapping",joinColumns=@JoinColumn(name="property_id"),
-	inverseJoinColumns=@JoinColumn(name="property_usage_id"))
+	@JoinTable(name="property_usage_mapping",joinColumns=@JoinColumn(name="property_id",unique = false),
+	inverseJoinColumns=@JoinColumn(name="property_usage_id",unique = false))
 	private Collection<PropertyUsage> propertyUsages = new ArrayList<>();
 	
 	@OneToMany
-	@JoinTable(name="property_type_mapping",joinColumns=@JoinColumn(name="property_id"),
-	inverseJoinColumns=@JoinColumn(name="property_type_id"))
+	@JoinTable(name="property_type_mapping",joinColumns=@JoinColumn(name="property_id",unique = false),
+	inverseJoinColumns=@JoinColumn(name="property_type_id",unique = false))
 	private Collection<PropertyType> propertyTypes = new ArrayList<>();
 	
 

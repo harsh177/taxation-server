@@ -18,7 +18,7 @@ public class PropertyType  implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
 	@Column(name = "property_type_id")
 	private Integer propertyTypeId;
 	
@@ -41,8 +41,7 @@ public class PropertyType  implements Serializable{
 		this.name = name;
 	}
 
-	public PropertyType(Integer propertyTypeId, String name) {
-		this.propertyTypeId = propertyTypeId;
+	public PropertyType(String name) {
 		this.name = name;
 	}
 

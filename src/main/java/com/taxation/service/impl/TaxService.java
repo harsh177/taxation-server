@@ -16,4 +16,16 @@ public class TaxService  implements ITaxService{
     public void saveAll(List<Tax> taxList) {
         iTaxDao.saveAll(taxList);
     }
+
+    @Override
+    public Tax getTaxForWaterConnectedProperty() {
+        return iTaxDao.getTaxForWaterConnectedProperty();
+    }
+
+    @Override
+    public Tax getTaxForWithoutWaterConnectionProperty() {
+        return iTaxDao.getTaxForWithoutWaterConnectionProperty();
+    }
+
+
 }

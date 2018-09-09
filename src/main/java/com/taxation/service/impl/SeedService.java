@@ -28,36 +28,36 @@ public class SeedService implements ISeedService {
     public SeedAllResponse seedAll() {
 
         List<PropertyType> defaultPropertyTypes = new ArrayList<>();
-        PropertyType propertyType1 = new PropertyType(1, "KAWELU");
+        PropertyType propertyType1 = new PropertyType( "KAWELU");
         defaultPropertyTypes.add(propertyType1);
-        PropertyType propertyType2 = new PropertyType(2, "MUD HOUSE");
+        PropertyType propertyType2 = new PropertyType("MUD HOUSE");
         defaultPropertyTypes.add(propertyType2);
-        PropertyType propertyType3 = new PropertyType(3, "HALF MUD HOUSE");
+        PropertyType propertyType3 = new PropertyType("HALF MUD HOUSE");
         defaultPropertyTypes.add(propertyType3);
-        PropertyType propertyType4 = new PropertyType(4, "CONCRETE HOUSE");
+        PropertyType propertyType4 = new PropertyType("CONCRETE HOUSE");
         defaultPropertyTypes.add(propertyType4);
         propertyTypeService.saveAll(defaultPropertyTypes);
 
 
         List<PropertyUsage> defaultPropertyUsages = new ArrayList<>();
-        PropertyUsage propertyUsage1 = new PropertyUsage(1,"FAMILY");
+        PropertyUsage propertyUsage1 = new PropertyUsage("FAMILY");
         defaultPropertyUsages.add(propertyUsage1);
-        PropertyUsage propertyUsage2 = new PropertyUsage(2,"SHOP");
+        PropertyUsage propertyUsage2 = new PropertyUsage("SHOP");
         defaultPropertyUsages.add(propertyUsage2);
-        PropertyUsage propertyUsage3 = new PropertyUsage(3,"AGRICULTURE");
+        PropertyUsage propertyUsage3 = new PropertyUsage("AGRICULTURE");
         defaultPropertyUsages.add(propertyUsage3);
-        PropertyUsage propertyUsage4 = new PropertyUsage(4,"ANIMAL HUSBANDRY");
+        PropertyUsage propertyUsage4 = new PropertyUsage("ANIMAL HUSBANDRY");
         defaultPropertyUsages.add(propertyUsage4);
-        PropertyUsage propertyUsage5 = new PropertyUsage(5,"WAREHOUSE");
+        PropertyUsage propertyUsage5 = new PropertyUsage("WAREHOUSE");
         defaultPropertyUsages.add(propertyUsage5);
-        PropertyUsage propertyUsage6 = new PropertyUsage(6,"OTHERS");
+        PropertyUsage propertyUsage6 = new PropertyUsage("OTHERS");
         defaultPropertyUsages.add(propertyUsage6);
         propertyUsageService.saveAll(defaultPropertyUsages);
 
         List<Tax> defaultTaxes = new ArrayList<>();
-        Tax tax1 = new Tax(1,"HOUSE",(float)50);
+        Tax tax1 = new Tax("HOUSE",(float)50);
         defaultTaxes.add(tax1);
-        Tax tax2 = new Tax(2,"WATER",(float)100);
+        Tax tax2 = new Tax("WATER",(float)100);
         defaultTaxes.add(tax2);
         taxService.saveAll(defaultTaxes);
 

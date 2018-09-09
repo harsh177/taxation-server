@@ -23,7 +23,7 @@ public class TaxDetail  implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
 	@Column(name = "tax_detail_id")
 	private Integer	taxDetailId;
 	
@@ -37,7 +37,7 @@ public class TaxDetail  implements Serializable{
 	
 	private String currentTaxPaymentStatus;
 	
-	private Integer amount;
+	private Float amount;
 	
 	public Integer getTaxDetailId() {
 		return taxDetailId;
@@ -63,10 +63,10 @@ public class TaxDetail  implements Serializable{
 	public void setCurrentTaxPaymentStatus(String currentTaxPaymentStatus) {
 		this.currentTaxPaymentStatus = currentTaxPaymentStatus;
 	}
-	public Integer getAmount() {
+	public Float getAmount() {
 		return amount;
 	}
-	public void setAmount(Integer amount) {
+	public void setAmount(Float amount) {
 		this.amount = amount;
 	}
 	

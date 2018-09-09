@@ -7,4 +7,8 @@ import java.util.List;
 public interface ITaxService {
 
     public void saveAll(List<Tax> taxList);
+
+    public Tax getTaxForWaterConnectedProperty();
+
+    public Tax getTaxForWithoutWaterConnectionProperty();
 }
