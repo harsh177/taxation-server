@@ -85,5 +85,16 @@ public class PropertyService implements IPropertyService {
 		return findBySamagraId(samagraId);
 	}
 
+	@Override
+	public Property getById(Integer propertyId) {
+		Property property = null;
+		try{
+			property = iPropertyDAO.findById(propertyId).get();
+		}catch(Exception nee){
+			throw  new NoSuchElementException("No property found with ID :"+propertyId);
+		}
+		return  property;
+	}
+
 
 }

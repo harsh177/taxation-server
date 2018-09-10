@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
@@ -113,6 +114,7 @@ public class Property  implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name="person_id")
+	@JsonIgnore
 	private Person person;
 	
 	@ManyToMany

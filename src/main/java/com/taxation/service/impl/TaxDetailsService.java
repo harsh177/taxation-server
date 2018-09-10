@@ -1,6 +1,7 @@
 package com.taxation.service.impl;
 
 import com.taxation.dao.interfaces.ITaxDetailsDAO;
+import com.taxation.model.Property;
 import com.taxation.model.TaxDetail;
 import com.taxation.service.interfaces.ITaxDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,10 @@ public class TaxDetailsService implements ITaxDetailsService {
     @Override
     public void saveAll(List<TaxDetail> taxDetails) {
         iTaxDetailsDAO.saveAll(taxDetails);
+    }
+
+    @Override
+    public List<TaxDetail> getTaxDetailsByPropertyId(Property property) {
+       return iTaxDetailsDAO.getTaxDetailsByPropertyId(property);
     }
 }

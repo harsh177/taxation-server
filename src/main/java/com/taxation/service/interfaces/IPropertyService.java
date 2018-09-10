@@ -16,4 +16,6 @@ public interface IPropertyService {
 	public List<Property> findBySamagraId(String samagraId);
 
 	public List<Property> findByPhoneNumber(String phoneNumber) throws Exception;
+
+	public Property getById(Integer propertyId);
 }

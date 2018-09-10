@@ -21,4 +21,8 @@ public class URLConstants {
 	public static final String SEED_ALL = "/seed/seedAll";
 	public static final String GET_PROPERTY_USAGES = "/seed/propertyUsage/getAll";
 	public static final String GET_PROPERTY_TYPES = "/seed/propertyTypes/getAll";
+
+
+	//TaxDetails URLS
+	public static final String TAX_DETAILS_BY_PROPERTY =  "/taxDetails/{propertyId}/getAll";
 }
