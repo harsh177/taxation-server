@@ -1,6 +1,7 @@
 package com.taxation.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -37,24 +38,19 @@ public class PropertyService implements IPropertyService {
 	}
 
 	@Override
-	public void payTax(PayTaxRequest payTaxRequest) throws Exception {
-		Integer propertyId = payTaxRequest.getPropertyId();
-		try {
-			Property property = iPropertyDAO.findById(propertyId).get();
-			System.out.println(propertyId);
-			System.out.println(property);
-		}catch (NoSuchElementException e){
-			throw new NoSuchElementException("Invalid property ID");
+	public void payTax(List<TaxDetail> taxDetails) {
+		List<TaxDetail> updatedTaxDetails = new ArrayList<>();
+		for(TaxDetail taxDetail: taxDetails){
+			taxDetail.setLastTaxPaidOn(new Date());
+			taxDetail.setCurrentTaxPaymentStatus(PaymentStatus.PAID);
+			updatedTaxDetails.add(taxDetail);
 		}
+		iTaxDetailsService.saveAll(taxDetails);
 	}
 
 	@Override
 	public void createProperty(Property property) {
-		List<PropertyUsage> propertyUsages = new ArrayList<>();
-		List<PropertyType> propertyTypes = new ArrayList<>();
-		System.out.println(property);
 		Person person = personService.getPersonBySamagraId(property.getSamagraId());
-
 		property.setPerson(person);
 		Property createdProperty = iPropertyDAO.save(property);
 		System.out.println(createdProperty);
@@ -69,7 +65,7 @@ public class PropertyService implements IPropertyService {
 			taxDetail.setAmount(tax.getValue());
 		}
 		taxDetail.setProperty(createdProperty);
-		taxDetail.setCurrentTaxPaymentStatus("DUE");
+		taxDetail.setCurrentTaxPaymentStatus(PaymentStatus.DUE);
 		iTaxDetailsService.save(taxDetail);
 	}
 

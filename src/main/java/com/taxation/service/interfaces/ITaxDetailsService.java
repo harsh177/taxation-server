@@ -7,7 +7,7 @@ import java.util.List;
 public interface ITaxDetailsService {
 
     public void save(TaxDetail taxDetail);
-    public void saveAll(List<TaxDetail> taxDetails);
+    public List<TaxDetail> saveAll(List<TaxDetail> taxDetails);
 
     public List<TaxDetail> getTaxDetailsByPropertyId(Property property);
 

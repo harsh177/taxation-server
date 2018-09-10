@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.taxation.model.TaxDetail;
 import com.taxation.resource.FindByPhoneOrSamagraRequest;
 import com.taxation.resource.FindByPhoneOrSamagraResponse;
 import com.taxation.resource.PayTaxRequest;
@@ -45,13 +46,9 @@ public class PropertyController {
 	}
 
 	@RequestMapping(value = URLConstants.PAY_TAX, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
-	public ResponseEntity<ApplicationResponse> payTax(@RequestBody PayTaxRequest paytaxRequest) throws Exception {
-		if(paytaxRequest.getPropertyId() != null) {
-			propertyService.payTax(paytaxRequest);
-			return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("nothing",true,null), HttpStatus.OK);
-		}else{
-			return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(paytaxRequest,true,"PropertyId cannot be Empty"),HttpStatus.PRECONDITION_FAILED);
-		}
+	public ResponseEntity<ApplicationResponse> payTax(@RequestBody List<TaxDetail> taxDetails) throws Exception {
+		propertyService.payTax(taxDetails);
+		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("PAID",true,"Payment Sucessful"), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = URLConstants.PROPERTY_GET_BY_PHONE_OR_SAMAGRA, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)

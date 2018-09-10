@@ -19,8 +19,8 @@ public class TaxDetailsService implements ITaxDetailsService {
     }
 
     @Override
-    public void saveAll(List<TaxDetail> taxDetails) {
-        iTaxDetailsDAO.saveAll(taxDetails);
+    public List<TaxDetail> saveAll(List<TaxDetail> taxDetails)  {
+        return iTaxDetailsDAO.saveAll(taxDetails);
     }
 
     @Override

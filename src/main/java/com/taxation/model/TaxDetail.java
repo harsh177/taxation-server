@@ -1,5 +1,7 @@
 package com.taxation.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -26,7 +28,9 @@ public class TaxDetail  implements Serializable{
 	@GeneratedValue
 	@Column(name = "tax_detail_id")
 	private Integer	taxDetailId;
-	
+
+
+
 	@ManyToOne
 	@JoinColumn(name="property_id")
 	private Property property;
@@ -35,7 +39,7 @@ public class TaxDetail  implements Serializable{
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastTaxPaidOn; 
 	
-	private String currentTaxPaymentStatus;
+	private PaymentStatus currentTaxPaymentStatus;
 	
 	private Float amount;
 	
@@ -57,10 +61,10 @@ public class TaxDetail  implements Serializable{
 	public void setLastTaxPaidOn(Date lastTaxPaidOn) {
 		this.lastTaxPaidOn = lastTaxPaidOn;
 	}
-	public String getCurrentTaxPaymentStatus() {
+	public PaymentStatus getCurrentTaxPaymentStatus() {
 		return currentTaxPaymentStatus;
 	}
-	public void setCurrentTaxPaymentStatus(String currentTaxPaymentStatus) {
+	public void setCurrentTaxPaymentStatus(PaymentStatus currentTaxPaymentStatus) {
 		this.currentTaxPaymentStatus = currentTaxPaymentStatus;
 	}
 	public Float getAmount() {
