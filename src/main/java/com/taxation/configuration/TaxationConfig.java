@@ -1,14 +1,23 @@
 package com.taxation.configuration;
 
-import com.taxation.dao.interfaces.ITaxDao;
-import com.taxation.service.impl.*;
-import com.taxation.service.interfaces.*;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.taxation.filter.MyFilter;
+import com.taxation.service.impl.PersonService;
+import com.taxation.service.impl.PropertyService;
+import com.taxation.service.impl.PropertyTypeService;
+import com.taxation.service.impl.PropertyUsageService;
+import com.taxation.service.impl.SeedService;
+import com.taxation.service.impl.TaxDetailsService;
+import com.taxation.service.impl.TaxService;
+import com.taxation.service.interfaces.IPersonService;
+import com.taxation.service.interfaces.IPropertyService;
+import com.taxation.service.interfaces.IPropertyTypeService;
+import com.taxation.service.interfaces.IPropertyUsageService;
+import com.taxation.service.interfaces.ISeedService;
+import com.taxation.service.interfaces.ITaxDetailsService;
+import com.taxation.service.interfaces.ITaxService;
 
 @Configuration
 public class TaxationConfig {
@@ -45,7 +54,7 @@ public class TaxationConfig {
 	@Qualifier("taxDetailsService")
 	public ITaxDetailsService getTaxDetailsService(){ return new TaxDetailsService();}
 
-	@Bean
+	/*@Bean
 	public FilterRegistrationBean<MyFilter> myFilterBean() {
 		final FilterRegistrationBean<MyFilter> filterRegBean = new FilterRegistrationBean<MyFilter>();
 		filterRegBean.setFilter(new MyFilter());
@@ -54,5 +63,5 @@ public class TaxationConfig {
 		filterRegBean.setName("My Filter");
 		filterRegBean.setAsyncSupported(Boolean.TRUE);
 		return filterRegBean;
-	}
+	}*/
 }

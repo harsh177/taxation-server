@@ -1,17 +1,21 @@
 package com.taxation.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.taxation.dao.interfaces.RoleRepository;
 import com.taxation.model.PropertyType;
 import com.taxation.model.PropertyUsage;
+import com.taxation.model.Role;
+import com.taxation.model.RoleName;
 import com.taxation.model.Tax;
 import com.taxation.resource.SeedAllResponse;
 import com.taxation.service.interfaces.IPropertyTypeService;
 import com.taxation.service.interfaces.IPropertyUsageService;
 import com.taxation.service.interfaces.ISeedService;
 import com.taxation.service.interfaces.ITaxService;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class SeedService implements ISeedService {
 
@@ -20,6 +24,9 @@ public class SeedService implements ISeedService {
 
     @Autowired
     IPropertyUsageService propertyUsageService;
+    
+    @Autowired
+    RoleRepository roleRepository;
 
     @Autowired
     ITaxService taxService;
@@ -60,9 +67,13 @@ public class SeedService implements ISeedService {
         Tax tax2 = new Tax("WATER",(float)100);
         defaultTaxes.add(tax2);
         taxService.saveAll(defaultTaxes);
+        
+        List<Role> roles = new ArrayList<>();
+        roles.add(new Role(RoleName.ROLE_USER));
+        roles.add(new Role(RoleName.ROLE_ADMIN));        
+        roleRepository.saveAll(roles);
 
-
-        SeedAllResponse seedAllResponse = new SeedAllResponse(defaultPropertyTypes,defaultPropertyUsages,defaultTaxes);
+        SeedAllResponse seedAllResponse = new SeedAllResponse(defaultPropertyTypes,defaultPropertyUsages,defaultTaxes,roles);
         return seedAllResponse;
     }
 

@@ -1,16 +1,18 @@
 package com.taxation.resource;
 
+import java.util.List;
+
 import com.taxation.model.PropertyType;
 import com.taxation.model.PropertyUsage;
+import com.taxation.model.Role;
 import com.taxation.model.Tax;
-
-import java.util.List;
 
 public class SeedAllResponse {
 
     private List<PropertyType> defaultPropertyTypes;
     private List<PropertyUsage> defaultPropertyUsages;
     private List<Tax> defaultTaxes;
+    private List<Role> defaultRoles;
 
     public List<PropertyUsage> getDefaultPropertyUsages() {
         return defaultPropertyUsages;
@@ -35,10 +37,20 @@ public class SeedAllResponse {
     public void setDefaultTaxes(List<Tax> defaultTaxes) {
         this.defaultTaxes = defaultTaxes;
     }
+    
+    
+    public List<Role> getDefaultRoles() {
+		return defaultRoles;
+	}
 
-    public SeedAllResponse(List<PropertyType> defaultPropertyTypes, List<PropertyUsage> defaultPropertyUsages, List<Tax> defaultTaxes) {
+	public void setDefaultRoles(List<Role> defaultRoles) {
+		this.defaultRoles = defaultRoles;
+	}
+
+	public SeedAllResponse(List<PropertyType> defaultPropertyTypes, List<PropertyUsage> defaultPropertyUsages, List<Tax> defaultTaxes,List<Role> defaultRoles) {
         this.defaultPropertyTypes = defaultPropertyTypes;
         this.defaultPropertyUsages = defaultPropertyUsages;
         this.defaultTaxes = defaultTaxes;
+        this.defaultRoles = defaultRoles;
     }
 }
