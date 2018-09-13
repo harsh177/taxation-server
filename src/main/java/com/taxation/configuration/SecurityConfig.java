@@ -79,11 +79,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/",
                         "/favicon.ico",
+                        "/**/*.eot",
+                        "/**/*.svg",
+                        "/**/*.woff2",
+                        "/**/*.ttf",
+                        "/**/*.woff",
                         "/**/*.png",
                         "/**/*.gif",
                         "/**/*.svg",
                         "/**/*.jpg",
                         "/**/*.html",
+                        "/**/*.txt",
                         "/**/*.css",
                         "/**/*.js")
                         .permitAll()
