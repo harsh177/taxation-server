@@ -22,7 +22,7 @@ public class Tax  implements Serializable{
 	@Column(name = "tax_id")
 	private Integer taxId;
 	
-	@Column(length = 20)
+	@Column(length = 20,unique = true)
 	private String name;
 
 	@Column(length = 20)

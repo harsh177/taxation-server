@@ -49,8 +49,9 @@ public class PropertyService implements IPropertyService {
 	}
 
 	@Override
-	public void createProperty(Property property) {
+	public void createProperty(Property property) throws Exception {
 		Person person = personService.getPersonBySamagraId(property.getSamagraId());
+		if(person==null) throw new Exception("Invalid Samagra Id :" + property.getSamagraId());
 		property.setPerson(person);
 		Property createdProperty = iPropertyDAO.save(property);
 		System.out.println(createdProperty);
@@ -70,8 +71,10 @@ public class PropertyService implements IPropertyService {
 	}
 
 	@Override
-	public List<Property> findBySamagraId(String samagraId) {
-		return iPropertyDAO.findBySamagraId(samagraId);
+	public List<Property> findBySamagraId(String samagraId) throws Exception {
+		List<Property> properties= iPropertyDAO.findBySamagraId(samagraId);
+		if(properties.size()==0) throw new Exception("No property found for samgraId :"+samagraId);
+		return properties;
 	}
 
 	@Override

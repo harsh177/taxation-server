@@ -1,15 +1,11 @@
 package com.taxation.model;
 
-import java.io.Serializable;
+import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -42,7 +38,7 @@ public class Person implements Serializable {
 	@Column(name = "samagra_id", length = 9, unique = true)
 	@NotBlank(message = "Samagra Id should not be blank")
 	@NotNull(message = "Samagra Id should not be blank")
-	@Size(min = 9, max = 9, message = "Samagra Id should be 9 digits")
+	@Size(min = 8, max = 8, message = "Samagra Id should be 8 digits")
 	private String samagraId;
 
 	@Column(length = 50)
@@ -60,6 +56,19 @@ public class Person implements Serializable {
 	@NotBlank
 	@NotNull
 	private String caste;
+
+
+//	@ManyToOne
+//	@JoinColumn
+////	@NotBlank
+////	@NotNull
+//	private User createdBy;
+
+//	@CreationTimestamp
+//	@Temporal(TemporalType.TIMESTAMP)
+//	@Column(name = "created_at", nullable = false)
+//	private Date createdAt;
+
 
 	public Integer getPersonId() {
 		return personId;
@@ -124,5 +133,18 @@ public class Person implements Serializable {
 	public void setCaste(String caste) {
 		this.caste = caste;
 	}
+//
+//	public User getCreatedBy() {	return createdBy;	}
+//
+//	public void setCreatedBy(User createdBy) {
+//		this.createdBy = createdBy;
+//	}
 
+//	public Date getCreatedAt() {
+//		return createdAt;
+//	}
+//
+//	public void setCreatedAt(Date createdAt) {
+//		this.createdAt = createdAt;
+//	}
 }

@@ -16,9 +16,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="property")
@@ -37,6 +40,9 @@ public class Property  implements Serializable{
 	@Column(name = "property_number",length = 10)
 	private String propertyNumber;
 
+	@Column(name = "sub_holder",length = 50)
+	private String subHolder;
+
 	@Column(length = 100)
 	private String area;
 	
@@ -46,13 +52,14 @@ public class Property  implements Serializable{
 	@Column(length = 8)
 	private String pincode;
 
-	@Column(name = "samagra_id",length = 9)
+	@Column(name = "samagra_id")
+	@Length(min=8, max=8, message="Length of Samagra Id must be 8 characters")
 	private String samagraId;
 	
 	@Column(name = "is_residential")	
 	private Boolean isResidential;
 
-	@Column(name = "resident_name",length = 50)	
+	@Column(name = "resident_name",length = 50)
 	private String residentName;
 	
 	@Column
@@ -93,6 +100,8 @@ public class Property  implements Serializable{
 		isResidential = residential;
 	}
 
+
+
 	public Boolean getWaterConnected() {
 		return isWaterConnected;
 	}
@@ -112,6 +121,8 @@ public class Property  implements Serializable{
 	@Column(name = "is_active")
 	private Boolean isActive;
 
+
+
 	@ManyToOne
 	@JoinColumn(name="person_id")
 	@JsonIgnore
@@ -127,19 +138,20 @@ public class Property  implements Serializable{
 	inverseJoinColumns=@JoinColumn(name="property_type_id",unique = false))
 	private Collection<PropertyType> propertyTypes = new ArrayList<>();
 	
-	@CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at", nullable = false)
-    private Date createdAt;
+//	@CreationTimestamp
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @Column(name = "created_at", nullable = false)
+//    private Date createdAt;
 
-	
-	public Date getCreatedAt() {
-		return createdAt;
-	}
 
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
+
+//	@ManyToOne
+//	@JoinColumn
+////	@NotBlank
+////	@NotNull
+//	@JsonIgnore
+//	private User createdBy;
+
 
 	public Collection<PropertyUsage> getPropertyUsages() {
 		return propertyUsages;
@@ -309,11 +321,28 @@ public class Property  implements Serializable{
 		this.person = person;
 	}
 
+	public String getSubHolder() {
+		return subHolder;
+	}
+
+	public void setSubHolder(String subHolder) {
+		this.subHolder = subHolder;
+	}
+
+//	public User getCreatedBy() {
+//		return createdBy;
+//	}
+//
+//	public void setCreatedBy(User createdBy) {
+//		this.createdBy = createdBy;
+//	}
+
 	@Override
 	public String toString() {
 		return "Property{" +
 				"propertyId=" + propertyId +
 				", propertyNumber='" + propertyNumber + '\'' +
+				", subHolder='" + subHolder + '\'' +
 				", area='" + area + '\'' +
 				", city='" + city + '\'' +
 				", pincode='" + pincode + '\'' +
@@ -330,6 +359,7 @@ public class Property  implements Serializable{
 				", isWaterConnected=" + isWaterConnected +
 				", waterBillDescription='" + waterBillDescription + '\'' +
 				", otherDescription='" + otherDescription + '\'' +
+				", isActive=" + isActive +
 				", person=" + person +
 				", propertyUsages=" + propertyUsages +
 				", propertyTypes=" + propertyTypes +

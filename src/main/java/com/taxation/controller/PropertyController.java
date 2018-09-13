@@ -5,14 +5,17 @@ import java.util.List;
 import javax.validation.Valid;
 
 import com.taxation.model.TaxDetail;
+import com.taxation.model.User;
 import com.taxation.resource.FindByPhoneOrSamagraRequest;
 import com.taxation.resource.FindByPhoneOrSamagraResponse;
 import com.taxation.resource.PayTaxRequest;
+import com.taxation.security.CurrentUser;
 import com.taxation.service.interfaces.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import com.taxation.common.ApplicationConstants;
@@ -34,8 +37,8 @@ public class PropertyController {
 	private IPersonService personService;
 	
 	@RequestMapping(value = URLConstants.PROPERTY_ADD, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
-	public ResponseEntity<ApplicationResponse> addProperty(@Valid @RequestBody Property person) {
-		propertyService.createProperty(person);
+	public ResponseEntity<ApplicationResponse> addProperty(@Valid @RequestBody Property property) throws Exception {
+		propertyService.createProperty(property);
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Added Successfully",true,null), HttpStatus.OK);
 	}
 
@@ -64,18 +67,17 @@ public class PropertyController {
 			findByPhoneOrSamagraResponse.setPropertyList(propertyService.findBySamagraId(samagraId));
 		}
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(findByPhoneOrSamagraResponse,true,"Person and Related Properties Fetched"), HttpStatus.OK);
-
 	}
 
 
 	@RequestMapping(value = URLConstants.PROPERTY_GET_BY_PHONE, method = RequestMethod.GET, produces = ApplicationConstants.APP_JSON)
 	public ResponseEntity<ApplicationResponse> getPropertyByPhoneNumber(@PathVariable String phoneNumber) throws Exception {
-			List<Property> properties = propertyService.findByPhoneNumber(phoneNumber);
+		List<Property> properties = propertyService.findByPhoneNumber(phoneNumber);
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(properties,true,null), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = URLConstants.PROPERTY_GET_BY_SAMAGRA, method = RequestMethod.GET, produces = ApplicationConstants.APP_JSON)
-	public ResponseEntity<ApplicationResponse> getPropertyBySamagra(@PathVariable String samagraId) {
+	public ResponseEntity<ApplicationResponse> getPropertyBySamagra(@PathVariable String samagraId) throws Exception {
 		List<Property> properties = propertyService.findBySamagraId(samagraId);
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(properties,true,null), HttpStatus.OK);
 	}

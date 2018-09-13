@@ -22,7 +22,7 @@ public class PropertyUsage  implements Serializable{
 	@Column(name = "property_usage_id")
 	private Integer propertyUsageId;
 	
-	@Column(length = 20)
+	@Column(length = 20,unique = true)
 	private String name;
 
 	public Integer getPropertyUsageId() {

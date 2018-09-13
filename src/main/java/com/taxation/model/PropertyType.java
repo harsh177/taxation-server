@@ -22,7 +22,7 @@ public class PropertyType  implements Serializable{
 	@Column(name = "property_type_id")
 	private Integer propertyTypeId;
 	
-	@Column(length = 20)
+	@Column(length = 20,unique = true)
 	private String name;
 
 	public Integer getPropertyTypeId() {

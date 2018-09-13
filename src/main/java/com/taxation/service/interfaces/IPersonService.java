@@ -5,7 +5,7 @@ import java.util.List;
 import com.taxation.model.Person;
 
 public interface IPersonService {
-	public void save(Person person);
+	public void save(Person person) throws Exception;
 
 	public List<Person> getAll();
 	

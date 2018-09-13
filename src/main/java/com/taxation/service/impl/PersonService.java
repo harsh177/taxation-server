@@ -13,10 +13,17 @@ import com.taxation.service.interfaces.IPersonService;
 public class PersonService implements IPersonService {
 	@Autowired
 	private IPersonDAO iPersonDAO;
+
+
 	
 	@Override
-	public void save(Person person) {
-		iPersonDAO.save(person);
+	public void save(Person person) throws Exception {
+		if(getPersonByPhoneNumber(person.getPhone())==null &&
+				getPersonBySamagraId(person.getSamagraId()) == null){
+			iPersonDAO.save(person);
+		}else {
+			throw new Exception("Samagra Id or Phone Already Exists");
+		}
 	}
 
 	@Override

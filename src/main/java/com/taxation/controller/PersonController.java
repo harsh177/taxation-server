@@ -30,7 +30,7 @@ public class PersonController {
 
 	
 	@RequestMapping(value = URLConstants.PERSON_ADD, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
-	public ResponseEntity<ApplicationResponse> addPerson(@Valid @RequestBody Person person) {
+	public ResponseEntity<ApplicationResponse> addPerson(@Valid @RequestBody Person person) throws Exception {
 		personService.save(person);
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Added Successfully",true,null), HttpStatus.OK);
 	}
@@ -44,7 +44,9 @@ public class PersonController {
 	@RequestMapping(value = URLConstants.PERSON_GET_SAMAGRA, method = RequestMethod.GET, produces = ApplicationConstants.APP_JSON)
 	public ResponseEntity<ApplicationResponse> getPersonBySamagraId(@PathVariable String samagraId) {
 		Person person = personService.getPersonBySamagraId(samagraId);
-		if(person==null)return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(person,true,"No member found with this SAMAGRA ID"), HttpStatus.OK);
+		if(person==null){
+			return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("No member found with this SAMAGRA ID",true,"Not Found"), HttpStatus.OK);
+		}
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(person,true,"Member found"), HttpStatus.OK);
 	}
 	
