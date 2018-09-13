@@ -35,7 +35,7 @@ public class Person implements Serializable {
 	@Size(min = 10, max = 10, message = "Phone number should be 10 digits")
 	private String phone;
 
-	@Column(name = "samagra_id", length = 9, unique = true)
+	@Column(name = "samagra_id", length = 8, unique = true)
 	@NotBlank(message = "Samagra Id should not be blank")
 	@NotNull(message = "Samagra Id should not be blank")
 	@Size(min = 8, max = 8, message = "Samagra Id should be 8 digits")
