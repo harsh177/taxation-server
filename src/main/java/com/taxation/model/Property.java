@@ -1,9 +1,7 @@
 package com.taxation.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,83 +12,85 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name="property")
-public class Property  implements Serializable{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@Table(name = "property")
+public class Property {
 
 	@Id
 	@GeneratedValue
 	@Column(name = "property_id")
 	private Integer propertyId;
-	
-	@Column(name = "property_number",length = 10)
+
+	@Column(name = "property_number", length = 10)
 	private String propertyNumber;
 
-	@Column(name = "sub_holder",length = 50)
+	@Column(name = "sub_holder", length = 50)
 	private String subHolder;
 
 	@Column(length = 100)
 	private String area;
-	
+
 	@Column(length = 50)
 	private String city;
-	
+
 	@Column(length = 8)
 	private String pincode;
 
 	@Column(name = "samagra_id")
-	@Length(min=8, max=8, message="Length of Samagra Id must be 8 characters")
+	@Length(min = 8, max = 8, message = "Length of Samagra Id must be 8 characters")
 	private String samagraId;
-	
-	@Column(name = "is_residential")	
+
+	@Column(name = "is_residential")
 	private Boolean isResidential;
 
-	@Column(name = "resident_name",length = 50)
+	@Column(name = "resident_name", length = 50)
 	private String residentName;
-	
+
 	@Column
 	private Float length;
-	
+
 	@Column
 	private Float width;
-	
-	@Column(name = "east_landmark",length = 50)	
+
+	@Column(name = "east_landmark", length = 50)
 	private String eastLandmark;
-	
-	@Column(name = "west_landmark",length = 50)	
+
+	@Column(name = "west_landmark", length = 50)
 	private String westLandmark;
-	
-	@Column(name = "north_landmark",length = 50)	
+
+	@Column(name = "north_landmark", length = 50)
 	private String northLandmark;
-	
-	@Column(name = "south_landmark",length = 50)	
+
+	@Column(name = "south_landmark", length = 50)
 	private String southLandmark;
-	
-	@Column(name = "shared_wall_description",length = 200)	
+
+	@Column(name = "shared_wall_description", length = 200)
 	private String sharedWallDescription;
-	
-	@Column(name = "is_water_connected")	
+
+	@Column(name = "is_water_connected")
 	private Boolean isWaterConnected;
-	
-	@Column(name = "water_bill_description",length = 200)	
+
+	@Column(name = "water_bill_description", length = 200)
 	private String waterBillDescription;
-	
-	@Column(name = "other_description",length = 200)	
+
+	@Column(name = "other_description", length = 200)
 	private String otherDescription;
+
+	@Column(name = "custom_unique_id")
+	private String customUniqueId;
+
+	public String getCustomUniqueId() {
+		return customUniqueId;
+	}
+
+	public void setCustomUniqueId(String customUniqueId) {
+		this.customUniqueId = customUniqueId;
+	}
 
 	public Boolean getResidential() {
 		return isResidential;
@@ -99,8 +99,6 @@ public class Property  implements Serializable{
 	public void setResidential(Boolean residential) {
 		isResidential = residential;
 	}
-
-
 
 	public Boolean getWaterConnected() {
 		return isWaterConnected;
@@ -121,37 +119,56 @@ public class Property  implements Serializable{
 	@Column(name = "is_active")
 	private Boolean isActive;
 
-
-
 	@ManyToOne
-	@JoinColumn(name="person_id")
+	@JoinColumn(name = "person_id")
 	@JsonIgnore
 	private Person person;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "panchayat_id")
+	@JsonIgnore
+	private Panchayat panchayat;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	@JsonIgnore
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Panchayat getPanchayat() {
+		return panchayat;
+	}
+
+	public void setPanchayat(Panchayat panchayat) {
+		this.panchayat = panchayat;
+	}
+
 	@ManyToMany
-	@JoinTable(name="property_usage_mapping",joinColumns=@JoinColumn(name="property_id",unique = false),
-	inverseJoinColumns=@JoinColumn(name="property_usage_id",unique = false))
+	@JoinTable(name = "property_usage_mapping", joinColumns = @JoinColumn(name = "property_id", unique = false) , inverseJoinColumns = @JoinColumn(name = "property_usage_id", unique = false) )
 	private Collection<PropertyUsage> propertyUsages = new ArrayList<>();
-	
+
 	@ManyToMany
-	@JoinTable(name="property_type_mapping",joinColumns=@JoinColumn(name="property_id",unique = false),
-	inverseJoinColumns=@JoinColumn(name="property_type_id",unique = false))
+	@JoinTable(name = "property_type_mapping", joinColumns = @JoinColumn(name = "property_id", unique = false) , inverseJoinColumns = @JoinColumn(name = "property_type_id", unique = false) )
 	private Collection<PropertyType> propertyTypes = new ArrayList<>();
-	
-//	@CreationTimestamp
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @Column(name = "created_at", nullable = false)
-//    private Date createdAt;
 
+	@ManyToMany
+	@JoinTable(name = "property_document_mapping", joinColumns = @JoinColumn(name = "property_id", unique = false) , inverseJoinColumns = @JoinColumn(name = "document_id", unique = false) )
+	private Collection<Document> documents = new ArrayList<>();
 
+	public Collection<Document> getDocuments() {
+		return documents;
+	}
 
-//	@ManyToOne
-//	@JoinColumn
-////	@NotBlank
-////	@NotNull
-//	@JsonIgnore
-//	private User createdBy;
-
+	public void setDocuments(Collection<Document> documents) {
+		this.documents = documents;
+	}
 
 	public Collection<PropertyUsage> getPropertyUsages() {
 		return propertyUsages;
@@ -329,40 +346,4 @@ public class Property  implements Serializable{
 		this.subHolder = subHolder;
 	}
 
-//	public User getCreatedBy() {
-//		return createdBy;
-//	}
-//
-//	public void setCreatedBy(User createdBy) {
-//		this.createdBy = createdBy;
-//	}
-
-	@Override
-	public String toString() {
-		return "Property{" +
-				"propertyId=" + propertyId +
-				", propertyNumber='" + propertyNumber + '\'' +
-				", subHolder='" + subHolder + '\'' +
-				", area='" + area + '\'' +
-				", city='" + city + '\'' +
-				", pincode='" + pincode + '\'' +
-				", samagraId='" + samagraId + '\'' +
-				", isResidential=" + isResidential +
-				", residentName='" + residentName + '\'' +
-				", length=" + length +
-				", width=" + width +
-				", eastLandmark='" + eastLandmark + '\'' +
-				", westLandmark='" + westLandmark + '\'' +
-				", northLandmark='" + northLandmark + '\'' +
-				", southLandmark='" + southLandmark + '\'' +
-				", sharedWallDescription='" + sharedWallDescription + '\'' +
-				", isWaterConnected=" + isWaterConnected +
-				", waterBillDescription='" + waterBillDescription + '\'' +
-				", otherDescription='" + otherDescription + '\'' +
-				", isActive=" + isActive +
-				", person=" + person +
-				", propertyUsages=" + propertyUsages +
-				", propertyTypes=" + propertyTypes +
-				'}';
-	}
 }

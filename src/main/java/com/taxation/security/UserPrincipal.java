@@ -10,9 +10,11 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.taxation.model.Panchayat;
 import com.taxation.model.User;
 
 public class UserPrincipal implements UserDetails {
+	
     private Long id;
 
     private String name;
@@ -24,15 +26,18 @@ public class UserPrincipal implements UserDetails {
 
     @JsonIgnore
     private String password;
+    
+    private	Panchayat	panchayat;
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrincipal(Long id, String name, String username, String email, String password, Collection<? extends GrantedAuthority> authorities) {
+    public UserPrincipal(Long id, String name, String username, String email, String password,Panchayat	panchayat, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.panchayat = panchayat;
         this.authorities = authorities;
     }
 
@@ -47,14 +52,20 @@ public class UserPrincipal implements UserDetails {
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
+                user.getPanchayat(),
                 authorities
         );
     }
 
+    
     public Long getId() {
         return id;
     }
 
+    public Panchayat getPanchayat() {
+        return panchayat;
+    }
+    
     public String getName() {
         return name;
     }

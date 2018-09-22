@@ -5,6 +5,7 @@ import com.taxation.common.URLConstants;
 import com.taxation.entity.ApplicationResponse;
 import com.taxation.model.Person;
 import com.taxation.model.Property;
+import com.taxation.model.TaxDetail;
 import com.taxation.service.impl.TaxDetailsService;
 import com.taxation.service.interfaces.IPersonService;
 import com.taxation.service.interfaces.IPropertyService;
@@ -34,5 +35,10 @@ public class TaxDetailsController {
         Property property = propertyService.getById(propertyId);
         return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(taxDetailsService.getTaxDetailsByPropertyId(property),true,"Tax Details Fetched"), HttpStatus.OK);
     }
-
+    
+    @RequestMapping(value = URLConstants.TAX_DETAILS_BY_TAX_DETAIL, method = RequestMethod.GET, produces = ApplicationConstants.APP_JSON)
+    public ResponseEntity<ApplicationResponse> getTaxDetailsByTaxDetailId(@PathVariable Integer taxDetailId) {
+        TaxDetail taxDetail = taxDetailsService.getById(taxDetailId);
+        return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(taxDetail,true,"Tax Details Fetched"), HttpStatus.OK);
+    }
 }

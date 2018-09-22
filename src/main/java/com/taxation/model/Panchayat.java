@@ -1,18 +1,22 @@
 package com.taxation.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "panchayat")
-public class Panchayat {
-    private static final long serialVersionUID = 1L;
+public class Panchayat{
 
     @Id
     @GeneratedValue
-    @Column(name = "id")
+    @Column(name = "panchayat_id")
     private Long panchayatId;
 
     @Column(length = 50)
@@ -28,10 +32,46 @@ public class Panchayat {
     @NotNull
     @NotBlank
     private String district;
+    
+    @Column(length = 200)
+    @NotNull
+    @NotBlank    
+    private String address;
+    
+    @Lob
+    private String logo;
+    
+    
+    public Panchayat() {
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
+
+	public Panchayat(
+			String name,
+			String head, String district,String address, String logo) {
+		super();
+		this.name = name;
+		this.head = head;
+		this.district = district;
+		this.address = address;
+		this.logo = logo;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
     public Long getPanchayatId() {
         return panchayatId;

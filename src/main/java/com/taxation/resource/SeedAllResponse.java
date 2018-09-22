@@ -2,6 +2,7 @@ package com.taxation.resource;
 
 import java.util.List;
 
+import com.taxation.model.Panchayat;
 import com.taxation.model.PropertyType;
 import com.taxation.model.PropertyUsage;
 import com.taxation.model.Role;
@@ -13,8 +14,18 @@ public class SeedAllResponse {
     private List<PropertyUsage> defaultPropertyUsages;
     private List<Tax> defaultTaxes;
     private List<Role> defaultRoles;
+    private Panchayat panchayat;
 
-    public List<PropertyUsage> getDefaultPropertyUsages() {
+    
+    public Panchayat getPanchayat() {
+		return panchayat;
+	}
+
+	public void setPanchayat(Panchayat panchayat) {
+		this.panchayat = panchayat;
+	}
+
+	public List<PropertyUsage> getDefaultPropertyUsages() {
         return defaultPropertyUsages;
     }
 
@@ -47,10 +58,11 @@ public class SeedAllResponse {
 		this.defaultRoles = defaultRoles;
 	}
 
-	public SeedAllResponse(List<PropertyType> defaultPropertyTypes, List<PropertyUsage> defaultPropertyUsages, List<Tax> defaultTaxes,List<Role> defaultRoles) {
+	public SeedAllResponse(List<PropertyType> defaultPropertyTypes, List<PropertyUsage> defaultPropertyUsages, List<Tax> defaultTaxes,List<Role> defaultRoles,Panchayat panchayat) {
         this.defaultPropertyTypes = defaultPropertyTypes;
         this.defaultPropertyUsages = defaultPropertyUsages;
         this.defaultTaxes = defaultTaxes;
         this.defaultRoles = defaultRoles;
+        this.panchayat = panchayat;
     }
 }

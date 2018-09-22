@@ -13,4 +13,6 @@ public interface IPropertyDAO extends JpaRepository<Property,Integer> {
     @Query("select p from Property p where p.samagraId = ?1")
     List<Property> findBySamagraId(String id);
 
+    @Query("select p from Property p where p.customUniqueId = ?1")
+    List<Property> findByUniqueId(String id);
 }

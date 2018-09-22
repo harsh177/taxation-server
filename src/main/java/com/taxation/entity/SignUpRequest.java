@@ -23,8 +23,19 @@ public class SignUpRequest {
     @NotBlank
     @Size(min = 6, max = 20)
     private String password;
+    
+    @NotNull
+    private	Long	pid;
+    
+    public Long getPid() {
+		return pid;
+	}
 
-    public String getName() {
+	public void setPid(Long pid) {
+		this.pid = pid;
+	}
+
+	public String getName() {
         return name;
     }
 

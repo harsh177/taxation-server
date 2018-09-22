@@ -27,4 +27,9 @@ public class TaxDetailsService implements ITaxDetailsService {
     public List<TaxDetail> getTaxDetailsByPropertyId(Property property) {
        return iTaxDetailsDAO.getTaxDetailsByPropertyId(property);
     }
+
+	@Override
+	public TaxDetail getById(Integer taxDetailId) {
+		 return iTaxDetailsDAO.findById(taxDetailId).get();
+	}
 }

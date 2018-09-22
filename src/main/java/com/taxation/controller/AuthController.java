@@ -6,6 +6,7 @@ import java.util.Collections;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -31,6 +32,7 @@ import com.taxation.model.RoleName;
 import com.taxation.model.User;
 import com.taxation.security.JwtTokenProvider;
 import com.taxation.security.UserPrincipal;
+import com.taxation.service.interfaces.IPanchayatService;
 
 /**
  * Created by rajeevkumarsingh on 02/08/17.
@@ -44,6 +46,10 @@ public class AuthController {
 
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	@Qualifier("panchayatServiceProvider")
+	IPanchayatService iPanchayatService;
 
 	@Autowired
 	RoleRepository roleRepository;
@@ -67,7 +73,7 @@ public class AuthController {
 		UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
 
 		return ResponseEntity
-				.ok(new JwtAuthenticationResponse(jwt, userPrincipal.getName(), userPrincipal.getUsername()));
+				.ok(new JwtAuthenticationResponse(jwt, userPrincipal.getName(), userPrincipal.getUsername(),userPrincipal.getId(),userPrincipal.getPanchayat()));
 	}
 
 	@PostMapping("/signup")
@@ -87,6 +93,11 @@ public class AuthController {
 				signUpRequest.getPassword());
 
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		if(!iPanchayatService.getPanchayatById(signUpRequest.getPid()).isPresent()){
+			return new ResponseEntity(new ApplicationResponse("Panchayat not exist", false, "Error"),
+					HttpStatus.BAD_REQUEST);
+		}
+		user.setPanchayat(iPanchayatService.getPanchayatById(signUpRequest.getPid()).get());
 
 		Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
 				.orElseThrow(() -> new AppException("User Role not set."));

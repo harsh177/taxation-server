@@ -10,5 +10,6 @@ public interface ITaxDetailsService {
     public List<TaxDetail> saveAll(List<TaxDetail> taxDetails);
 
     public List<TaxDetail> getTaxDetailsByPropertyId(Property property);
+	public TaxDetail getById(Integer taxDetailId);
 
 }

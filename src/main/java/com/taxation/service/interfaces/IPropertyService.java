@@ -12,11 +12,13 @@ public interface IPropertyService {
 
 	public void payTax(List<TaxDetail> taxDetails) throws Exception;
 
-	public void createProperty(Property property) throws Exception;
-
 	public List<Property> findBySamagraId(String samagraId) throws Exception;
 
 	public List<Property> findByPhoneNumber(String phoneNumber) throws Exception;
 
 	public Property getById(Integer propertyId);
+
+	void createProperty(Property property, Long pid, Long uid) throws Exception;
+
+	public List<Property> findByUniqueId(String uniqueId);
 }

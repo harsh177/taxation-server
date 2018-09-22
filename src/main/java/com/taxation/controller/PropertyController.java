@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import com.taxation.model.TaxDetail;
 import com.taxation.model.User;
+import com.taxation.resource.FindByPhoneOrSamagraOrUniqueRequest;
 import com.taxation.resource.FindByPhoneOrSamagraRequest;
 import com.taxation.resource.FindByPhoneOrSamagraResponse;
 import com.taxation.resource.PayTaxRequest;
@@ -37,8 +38,8 @@ public class PropertyController {
 	private IPersonService personService;
 	
 	@RequestMapping(value = URLConstants.PROPERTY_ADD, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
-	public ResponseEntity<ApplicationResponse> addProperty(@Valid @RequestBody Property property) throws Exception {
-		propertyService.createProperty(property);
+	public ResponseEntity<ApplicationResponse> addProperty(@Valid @RequestBody Property property,@PathVariable Long pid,@PathVariable Long uid) throws Exception {
+		propertyService.createProperty(property,pid,uid);
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Added Successfully",true,null), HttpStatus.OK);
 	}
 
@@ -67,6 +68,22 @@ public class PropertyController {
 			findByPhoneOrSamagraResponse.setPropertyList(propertyService.findBySamagraId(samagraId));
 		}
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(findByPhoneOrSamagraResponse,true,"Person and Related Properties Fetched"), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = URLConstants.PROPERTY_GET_BY_PHONE_OR_SAMAGRA_OR_UNIQUE, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
+	public ResponseEntity<ApplicationResponse> getPropertyByPhoneOrSamagraOrUniqueId(@RequestBody FindByPhoneOrSamagraOrUniqueRequest findByPhoneOrSamagraRequest) throws Exception {
+		String phoneNumber = findByPhoneOrSamagraRequest.getPhoneNumber();
+		String samagraId = findByPhoneOrSamagraRequest.getSamagraId();
+		String uniqueId = findByPhoneOrSamagraRequest.getCustomUniqueId();
+		List<Property>	properties	=	null;
+		if(phoneNumber != null && !phoneNumber.isEmpty()){
+			properties	=	propertyService.findByPhoneNumber(phoneNumber);
+		}else if (samagraId !=null && !samagraId.isEmpty()){
+			properties	=	propertyService.findBySamagraId(samagraId);
+		}else	if(uniqueId !=null && !uniqueId.isEmpty()){
+			properties	=	propertyService.findByUniqueId(uniqueId);
+		}
+		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(properties,true,"Person and Related Properties Fetched"), HttpStatus.OK);
 	}
 
 

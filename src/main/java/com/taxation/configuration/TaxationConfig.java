@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.taxation.service.impl.PanchayatService;
 import com.taxation.service.impl.PersonService;
 import com.taxation.service.impl.PropertyService;
 import com.taxation.service.impl.PropertyTypeService;
@@ -11,6 +12,7 @@ import com.taxation.service.impl.PropertyUsageService;
 import com.taxation.service.impl.SeedService;
 import com.taxation.service.impl.TaxDetailsService;
 import com.taxation.service.impl.TaxService;
+import com.taxation.service.interfaces.IPanchayatService;
 import com.taxation.service.interfaces.IPersonService;
 import com.taxation.service.interfaces.IPropertyService;
 import com.taxation.service.interfaces.IPropertyTypeService;
@@ -49,6 +51,10 @@ public class TaxationConfig {
 	@Bean
 	@Qualifier("taxService")
 	public ITaxService getTaxService(){ return new TaxService();}
+
+	@Bean
+	@Qualifier("panchayatServiceProvider")
+	public IPanchayatService getPanchayatService(){ return new PanchayatService();}
 
 	@Bean
 	@Qualifier("taxDetailsService")

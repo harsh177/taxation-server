@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
@@ -19,6 +20,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.NaturalId;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.taxation.model.audit.DateAudit;
 
 /**
@@ -34,7 +36,7 @@ import com.taxation.model.audit.DateAudit;
             "email"
         })
 })
-public class User extends DateAudit {
+public class User {
     @Id
     @GeneratedValue
     private Long id;
@@ -63,6 +65,21 @@ public class User extends DateAudit {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+	@ManyToOne
+	@JoinColumn(name="panchayat_id")
+	@JsonIgnore
+	private Panchayat panchayat;
+	
+	
+	public Panchayat getPanchayat() {
+		return panchayat;
+	}
+
+	public void setPanchayat(Panchayat panchayat) {
+		this.panchayat = panchayat;
+	}
+
+	
     public User() {
 
     }

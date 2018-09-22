@@ -2,6 +2,8 @@ package com.taxation.model;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -68,8 +70,7 @@ public class Person implements Serializable {
 //	@Temporal(TemporalType.TIMESTAMP)
 //	@Column(name = "created_at", nullable = false)
 //	private Date createdAt;
-
-
+	
 	public Integer getPersonId() {
 		return personId;
 	}

@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import com.taxation.dao.interfaces.ITaxDetailsDAO;
+import com.taxation.dao.interfaces.UserRepository;
 import com.taxation.model.*;
 import com.taxation.resource.PayTaxRequest;
+import com.taxation.service.interfaces.IPanchayatService;
 import com.taxation.service.interfaces.IPersonService;
 import com.taxation.service.interfaces.ITaxDetailsService;
 import com.taxation.service.interfaces.ITaxService;
@@ -15,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.taxation.dao.interfaces.IDocumentDAO;
 import com.taxation.dao.interfaces.IPropertyDAO;
 import com.taxation.service.interfaces.IPropertyService;
 
@@ -32,6 +35,16 @@ public class PropertyService implements IPropertyService {
 	@Autowired
 	private ITaxDetailsService iTaxDetailsService;
 
+	@Autowired
+	UserRepository userRepository;
+	
+	@Autowired
+	@Qualifier("panchayatServiceProvider")
+	IPanchayatService iPanchayatService;
+
+	@Autowired
+	IDocumentDAO	iDocumentDAO;
+	
 	@Override
 	public List<Property> getAll() {
 		return iPropertyDAO.findAll();
@@ -49,10 +62,19 @@ public class PropertyService implements IPropertyService {
 	}
 
 	@Override
-	public void createProperty(Property property) throws Exception {
+	public void createProperty(Property property,Long	pid,Long	uid) throws Exception {
+		if(!iPanchayatService.getPanchayatById(pid).isPresent())throw new Exception("Panchayat	not	found :" + pid);
+		Panchayat	panchayat=iPanchayatService.getPanchayatById(pid).get();
+		property.setPanchayat(panchayat);
+		if(!userRepository.findById(uid).isPresent())throw new Exception("User	not	found :" + uid);
+		User	user=userRepository.findById(uid).get();
+		property.setUser(user);
 		Person person = personService.getPersonBySamagraId(property.getSamagraId());
 		if(person==null) throw new Exception("Invalid Samagra Id :" + property.getSamagraId());
 		property.setPerson(person);
+		
+		List<Document>	docList	=	iDocumentDAO.saveAll(property.getDocuments());
+		property.setDocuments(docList);
 		Property createdProperty = iPropertyDAO.save(property);
 		System.out.println(createdProperty);
 		TaxDetail taxDetail = new TaxDetail();
@@ -95,5 +117,11 @@ public class PropertyService implements IPropertyService {
 		return  property;
 	}
 
+	@Override
+	public List<Property> findByUniqueId(String uniqueId) {
+		// TODO Auto-generated method stub
+		List<Property> properties= iPropertyDAO.findByUniqueId(uniqueId);
+		return properties;
+	}
 
 }
