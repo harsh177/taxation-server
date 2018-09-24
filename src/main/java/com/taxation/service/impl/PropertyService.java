@@ -9,6 +9,7 @@ import com.taxation.dao.interfaces.ITaxDetailsDAO;
 import com.taxation.dao.interfaces.UserRepository;
 import com.taxation.model.*;
 import com.taxation.resource.PayTaxRequest;
+import com.taxation.resource.TransferPropertyRequest;
 import com.taxation.service.interfaces.IPanchayatService;
 import com.taxation.service.interfaces.IPersonService;
 import com.taxation.service.interfaces.ITaxDetailsService;
@@ -72,7 +73,6 @@ public class PropertyService implements IPropertyService {
 		Person person = personService.getPersonBySamagraId(property.getSamagraId());
 		if(person==null) throw new Exception("Invalid Samagra Id :" + property.getSamagraId());
 		property.setPerson(person);
-		
 		List<Document>	docList	=	iDocumentDAO.saveAll(property.getDocuments());
 		property.setDocuments(docList);
 		Property createdProperty = iPropertyDAO.save(property);
@@ -122,6 +122,21 @@ public class PropertyService implements IPropertyService {
 		// TODO Auto-generated method stub
 		List<Property> properties= iPropertyDAO.findByUniqueId(uniqueId);
 		return properties;
+	}
+
+	@Override
+	public void transferProperty(TransferPropertyRequest transferPropertyRequest,Long pid,Long uid) throws Exception {
+		//fetch property by property id make it inactive and save
+ 		Property property = getById(transferPropertyRequest.getPropertyId());
+		Property newProperty = property;
+		property.setActive(false);
+		iPropertyDAO.save(property);
+		//fetch the person - the new owner of this property
+		Person newPerson = personService.getPersonBySamagraId(transferPropertyRequest.getTransferToSamagraId());
+		newProperty.setPerson(newPerson);
+		newProperty.setSamagraId(transferPropertyRequest.getTransferToSamagraId());
+		newProperty.setDocuments(transferPropertyRequest.getDocuments());
+		createProperty(newProperty,pid,uid);
 	}
 
 }

@@ -18,6 +18,7 @@ public class URLConstants {
 	public static final String PROPERTY_GET_BY_PHONE_OR_SAMAGRA_OR_UNIQUE = "/property/getByPhoneOrSamagraOrUnique";
 	public static final String PROPERTY_GET_BY_PHONE = "/property/phone/{phoneNumber}";
 	public static final String PROPERTY_GET_BY_SAMAGRA = "/property/samagra/{samagraId}";
+	public static final String PROPERTY_TRANSFER = "/property/transfer";
 	// SeedController URL's
 	public static final String SEED_ALL = "/seed/seedAll";
 	public static final String GET_PROPERTY_USAGES = "/seed/propertyUsage/getAll";

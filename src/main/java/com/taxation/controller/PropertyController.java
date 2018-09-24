@@ -6,10 +6,7 @@ import javax.validation.Valid;
 
 import com.taxation.model.TaxDetail;
 import com.taxation.model.User;
-import com.taxation.resource.FindByPhoneOrSamagraOrUniqueRequest;
-import com.taxation.resource.FindByPhoneOrSamagraRequest;
-import com.taxation.resource.FindByPhoneOrSamagraResponse;
-import com.taxation.resource.PayTaxRequest;
+import com.taxation.resource.*;
 import com.taxation.security.CurrentUser;
 import com.taxation.service.interfaces.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,5 +94,11 @@ public class PropertyController {
 	public ResponseEntity<ApplicationResponse> getPropertyBySamagra(@PathVariable String samagraId) throws Exception {
 		List<Property> properties = propertyService.findBySamagraId(samagraId);
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(properties,true,null), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = URLConstants.PROPERTY_TRANSFER, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
+	public ResponseEntity<ApplicationResponse> transferProperty(@RequestBody TransferPropertyRequest transferPropertyRequest,Long pid,Long uid) throws Exception {
+		propertyService.transferProperty(transferPropertyRequest,pid,uid);
+		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Transferred Successfully",true,null), HttpStatus.OK);
 	}
 }

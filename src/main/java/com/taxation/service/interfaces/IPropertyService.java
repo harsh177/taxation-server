@@ -5,6 +5,7 @@ import java.util.List;
 import com.taxation.model.Property;
 import com.taxation.model.TaxDetail;
 import com.taxation.resource.PayTaxRequest;
+import com.taxation.resource.TransferPropertyRequest;
 
 public interface IPropertyService {
 
@@ -21,4 +22,6 @@ public interface IPropertyService {
 	void createProperty(Property property, Long pid, Long uid) throws Exception;
 
 	public List<Property> findByUniqueId(String uniqueId);
+
+	public void transferProperty(TransferPropertyRequest transferPropertyRequest,Long pid,Long uid) throws Exception;
 }
