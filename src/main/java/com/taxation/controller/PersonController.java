@@ -56,4 +56,24 @@ public class PersonController {
 		if(person==null)return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(person,true,"No member found with this Phone number"), HttpStatus.OK);
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(person,true,"Member found"), HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = URLConstants.PERSON_GET_ID, method = RequestMethod.GET, produces = ApplicationConstants.APP_JSON)
+	public ResponseEntity<ApplicationResponse> getPersonById(@PathVariable String id) {
+		Person person = personService.getById(Integer.parseInt(id));
+		if(person==null)return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("No member found with Id:"+id,false,null), HttpStatus.OK);
+		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(person,true,null), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = URLConstants.PERSON_DELETE, method = RequestMethod.DELETE, produces = ApplicationConstants.APP_JSON)
+	public ResponseEntity<ApplicationResponse> deletePerson(@PathVariable String id) {
+		personService.softDelete(Integer.parseInt(id));
+		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Deleted	Successfully",true,null), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = URLConstants.PERSON_UPDATE, method = RequestMethod.PUT, consumes = ApplicationConstants.APP_JSON)
+	public ResponseEntity<ApplicationResponse> updatePerson(@Valid @RequestBody Person person) throws Exception {
+		personService.edit(person);
+		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Updated Successfully",true,null), HttpStatus.OK);
+	}
+	
 }

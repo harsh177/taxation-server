@@ -94,7 +94,13 @@ public class PropertyService implements IPropertyService {
 
 	@Override
 	public List<Property> findBySamagraId(String samagraId) throws Exception {
-		List<Property> properties= iPropertyDAO.findBySamagraId(samagraId);
+		List<Property> properties= null;
+		if(personService.getPersonBySamagraId(samagraId)!=null	&&	personService.getPersonBySamagraId(samagraId).getName()!=null){
+			properties	=	iPropertyDAO.findBySamagraId(samagraId);
+		}else{
+			//this	is	delete	case
+			throw new Exception("No property found for samgraId :"+samagraId);
+		}
 		//if(properties.size()==0) throw new Exception("No property found for samgraId :"+samagraId);
 		return properties;
 	}

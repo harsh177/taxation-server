@@ -1,16 +1,19 @@
 package com.taxation.model;
 
-import org.hibernate.annotations.CreationTimestamp;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
-import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "person")
@@ -59,18 +62,21 @@ public class Person implements Serializable {
 	@NotNull
 	private String caste;
 
+	@JsonIgnore
+	private Boolean active = true;
 
-//	@ManyToOne
-//	@JoinColumn
-////	@NotBlank
-////	@NotNull
-//	private User createdBy;
+	public Boolean getActive() {
+		return active;
+	}
 
-//	@CreationTimestamp
-//	@Temporal(TemporalType.TIMESTAMP)
-//	@Column(name = "created_at", nullable = false)
-//	private Date createdAt;
-	
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public Integer getPersonId() {
 		return personId;
 	}
@@ -134,18 +140,5 @@ public class Person implements Serializable {
 	public void setCaste(String caste) {
 		this.caste = caste;
 	}
-//
-//	public User getCreatedBy() {	return createdBy;	}
-//
-//	public void setCreatedBy(User createdBy) {
-//		this.createdBy = createdBy;
-//	}
 
-//	public Date getCreatedAt() {
-//		return createdAt;
-//	}
-//
-//	public void setCreatedAt(Date createdAt) {
-//		this.createdAt = createdAt;
-//	}
 }

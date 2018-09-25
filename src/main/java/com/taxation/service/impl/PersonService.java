@@ -13,8 +13,6 @@ import com.taxation.service.interfaces.IPersonService;
 public class PersonService implements IPersonService {
 	@Autowired
 	private IPersonDAO iPersonDAO;
-
-
 	
 	@Override
 	public void save(Person person) throws Exception {
@@ -28,7 +26,7 @@ public class PersonService implements IPersonService {
 
 	@Override
 	public List<Person> getAll() {
-		return iPersonDAO.findAll();
+		return iPersonDAO.getAllPersons();
 	}
 
 	@Override
@@ -47,4 +45,20 @@ public class PersonService implements IPersonService {
 		return iPersonDAO.getSamagraIdByPhoneNumber(phoneNumber);
 	}
 
+	@Override
+	public Person getById(Integer id) {
+		return iPersonDAO.findById(id).get();
+	}
+
+	@Override
+	public void softDelete(Integer parseInt) {
+		Person	p	=	getById(parseInt);
+		p.setActive(false);
+		iPersonDAO.save(p);
+	}
+	
+	@Override
+	public void edit(Person person) {
+		iPersonDAO.save(person);
+	}
 }
