@@ -102,4 +102,10 @@ public class PropertyController {
 		propertyService.transferProperty(transferPropertyRequest,pid,uid);
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Transferred Successfully",true,null), HttpStatus.OK);
 	}
+
+	@RequestMapping(value = URLConstants.PROPERTY_UPDATE, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
+	public ResponseEntity<ApplicationResponse> addProperty(@Valid @RequestBody Property property) throws Exception {
+		propertyService.updateProperty(property);
+		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Added Successfully",true,null), HttpStatus.OK);
+	}
 }

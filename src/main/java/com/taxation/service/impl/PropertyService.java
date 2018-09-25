@@ -78,12 +78,12 @@ public class PropertyService implements IPropertyService {
 		List<Document>	docList	=	iDocumentDAO.saveAll(property.getDocuments());
 		property.setDocuments(docList);
 		property.setCustomUniqueId("A_HARD_CODE");
+		property.setActive(true);
 		Property createdProperty = iPropertyDAO.save(property);
-		System.out.println(createdProperty);
+
 		TaxDetail taxDetail = new TaxDetail();
 		if(createdProperty.getIsWaterConnected()){
 		  Tax tax = iTaxService.getTaxForWaterConnectedProperty();
-			System.out.println(tax);
 		  taxDetail.setAmount(tax.getValue());
 
 		}else {
@@ -165,6 +165,11 @@ public class PropertyService implements IPropertyService {
 		newProperty.setDocuments(transferPropertyRequest.getDocuments());
 		System.out.println(newProperty);
 		createProperty(newProperty,pid,uid);
+	}
+
+	@Override
+	public void updateProperty(Property property) throws Exception {
+
 	}
 
 }
