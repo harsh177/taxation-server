@@ -50,4 +50,15 @@ public class TransferPropertyRequest {
     public void setResidentName(String residentName) {
         this.residentName = residentName;
     }
+
+    @Override
+    public String toString() {
+        return "TransferPropertyRequest{" +
+                "propertyId=" + propertyId +
+                ", transferToSamagraId='" + transferToSamagraId + '\'' +
+                ", newSubHolder='" + newSubHolder + '\'' +
+                ", residentName='" + residentName + '\'' +
+                ", documents=" + documents +
+                '}';
+    }
 }

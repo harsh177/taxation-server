@@ -14,8 +14,10 @@ import com.taxation.service.interfaces.IPanchayatService;
 import com.taxation.service.interfaces.IPersonService;
 import com.taxation.service.interfaces.ITaxDetailsService;
 import com.taxation.service.interfaces.ITaxService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import com.taxation.dao.interfaces.IDocumentDAO;
@@ -75,6 +77,7 @@ public class PropertyService implements IPropertyService {
 		property.setPerson(person);
 		List<Document>	docList	=	iDocumentDAO.saveAll(property.getDocuments());
 		property.setDocuments(docList);
+		property.setCustomUniqueId("A_HARD_CODE");
 		Property createdProperty = iPropertyDAO.save(property);
 		System.out.println(createdProperty);
 		TaxDetail taxDetail = new TaxDetail();
@@ -127,15 +130,40 @@ public class PropertyService implements IPropertyService {
 	@Override
 	public void transferProperty(TransferPropertyRequest transferPropertyRequest,Long pid,Long uid) throws Exception {
 		//fetch property by property id make it inactive and save
- 		Property property = getById(transferPropertyRequest.getPropertyId());
-		Property newProperty = property;
-		property.setActive(false);
-		iPropertyDAO.save(property);
+		Property property = getById(transferPropertyRequest.getPropertyId());
+		Property newProperty = new Property();
+		if(property.getActive()) {
+			property.setActive(false);
+			iPropertyDAO.save(property);
+		}else {
+			throw new Exception("Property with Unique id :"+property.getCustomUniqueId()+"does not belong to current samagra and cant be transffered");
+		}
 		//fetch the person - the new owner of this property
-		Person newPerson = personService.getPersonBySamagraId(transferPropertyRequest.getTransferToSamagraId());
-		newProperty.setPerson(newPerson);
+		newProperty.setActive(true);
+		newProperty.setArea(property.getArea());
+		newProperty.setIsResidential(property.getIsResidential());
+		newProperty.setIsWaterConnected(property.getWaterConnected());
+		newProperty.setEastLandmark(property.getEastLandmark());
+		newProperty.setWestLandmark(property.getWestLandmark());
+		newProperty.setNorthLandmark(property.getNorthLandmark());
+		newProperty.setSouthLandmark(property.getSouthLandmark());
+		newProperty.setCity(property.getCity());
+		newProperty.setPropertyNumber(property.getPropertyNumber());
+		newProperty.setPanchayat(property.getPanchayat());
+		newProperty.setSharedWallDescription(property.getSharedWallDescription());
+		newProperty.setWaterBillDescription(property.getWaterBillDescription());
+		newProperty.setLength(property.getLength());
+		newProperty.setWidth(property.getWidth());
+
+		BeanUtils.copyProperties(property.getPropertyUsages(),newProperty.getPropertyUsages());
+		BeanUtils.copyProperties(property.getPropertyTypes(),newProperty.getPropertyTypes());
+//		newProperty.setPropertyUsages(property.getPropertyUsages());
+		newProperty.setOtherDescription(property.getOtherDescription());
+		newProperty.setPincode(property.getPincode());
+		//the updated field
 		newProperty.setSamagraId(transferPropertyRequest.getTransferToSamagraId());
 		newProperty.setDocuments(transferPropertyRequest.getDocuments());
+		System.out.println(newProperty);
 		createProperty(newProperty,pid,uid);
 	}
 

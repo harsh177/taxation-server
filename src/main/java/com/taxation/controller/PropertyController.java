@@ -97,7 +97,8 @@ public class PropertyController {
 	}
 
 	@RequestMapping(value = URLConstants.PROPERTY_TRANSFER, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
-	public ResponseEntity<ApplicationResponse> transferProperty(@RequestBody TransferPropertyRequest transferPropertyRequest,Long pid,Long uid) throws Exception {
+	public ResponseEntity<ApplicationResponse> transferProperty(@RequestBody TransferPropertyRequest transferPropertyRequest,@PathVariable Long pid,@PathVariable Long uid) throws Exception {
+		System.out.println(transferPropertyRequest);
 		propertyService.transferProperty(transferPropertyRequest,pid,uid);
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Transferred Successfully",true,null), HttpStatus.OK);
 	}
