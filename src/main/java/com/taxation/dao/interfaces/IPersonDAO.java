@@ -11,7 +11,7 @@ import com.taxation.model.Person;
 
 @Repository
 public interface IPersonDAO extends JpaRepository<Person, Integer> {
-	@Query("select e from Person e where e.samagraId = :samagraId")
+	@Query("select e from Person e where e.samagraId = :samagraId	and	e.active = true")
 	Person findBySamagraId(@Param("samagraId") String samagraId);
 
 	@Query("select e from Person e where e.phone = ?1	and	e.active = true")

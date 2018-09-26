@@ -45,7 +45,7 @@ public class PersonController {
 	public ResponseEntity<ApplicationResponse> getPersonBySamagraId(@PathVariable String samagraId) {
 		Person person = personService.getPersonBySamagraId(samagraId);
 		if(person==null){
-			return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("No member found with this SAMAGRA ID",true,"Not Found"), HttpStatus.OK);
+			return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("No member found with this SAMAGRA ID",false,"Not Found"), HttpStatus.OK);
 		}
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(person,true,"Member found"), HttpStatus.OK);
 	}
