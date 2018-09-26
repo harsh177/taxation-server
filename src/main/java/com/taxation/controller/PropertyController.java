@@ -97,8 +97,15 @@ public class PropertyController {
 	}
 
 	@RequestMapping(value = URLConstants.PROPERTY_TRANSFER, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
-	public ResponseEntity<ApplicationResponse> transferProperty(@RequestBody TransferPropertyRequest transferPropertyRequest,Long pid,Long uid) throws Exception {
+	public ResponseEntity<ApplicationResponse> transferProperty(@RequestBody TransferPropertyRequest transferPropertyRequest,@PathVariable Long pid,@PathVariable Long uid) throws Exception {
+		System.out.println(transferPropertyRequest);
 		propertyService.transferProperty(transferPropertyRequest,pid,uid);
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Transferred Successfully",true,null), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = URLConstants.PROPERTY_UPDATE, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
+	public ResponseEntity<ApplicationResponse> addProperty(@Valid @RequestBody Property property) throws Exception {
+		propertyService.updateProperty(property);
+		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Added Successfully",true,null), HttpStatus.OK);
 	}
 }

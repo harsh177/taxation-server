@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81134f93-f667-4d42-ab76-c2e951f9d8d7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/taxation/configuration/TaxationConfig.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/taxation/controller/PropertyController.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/taxation/service/impl/SeedService.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/taxation/common/URLConstants.java" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/common/URLConstants.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/taxation/controller/PropertyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/controller/PropertyController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PropertyService.java" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PropertyService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/SeedService.java" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/SeedService.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/taxation/service/interfaces/IPropertyService.java" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/service/interfaces/IPropertyService.java" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -53,8 +50,8 @@
       <file leaf-file-name="PropertyService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PropertyService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="139" column="4" lean-forward="false" selection-start-line="139" selection-start-column="4" selection-end-line="139" selection-end-column="4" />
+            <state relative-caret-position="178">
+              <caret line="80" column="31" lean-forward="false" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -63,8 +60,8 @@
       <file leaf-file-name="PropertyController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/controller/PropertyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="103" column="1" lean-forward="true" selection-start-line="103" selection-start-column="1" selection-end-line="103" selection-end-column="1" />
+            <state relative-caret-position="291">
+              <caret line="101" column="37" lean-forward="false" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -73,8 +70,8 @@
       <file leaf-file-name="IPropertyService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/service/interfaces/IPropertyService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="25" column="98" lean-forward="false" selection-start-line="25" selection-start-column="98" selection-end-line="25" selection-end-column="98" />
+            <state relative-caret-position="396">
+              <caret line="27" column="67" lean-forward="false" selection-start-line="27" selection-start-column="67" selection-end-line="27" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -83,8 +80,8 @@
       <file leaf-file-name="TransferPropertyRequest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/resource/TransferPropertyRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="321">
+              <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#350#351#0" expanded="true" />
@@ -133,6 +130,9 @@
       <find>samagr</find>
       <find>create</find>
       <find>docume</find>
+      <find>signin</find>
+      <find>USAGE</find>
+      <find>unique</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -552,11 +552,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PersonService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/controller/PersonController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/SeedService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/taxation/common/URLConstants.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/taxation/model/Property.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/resource/TransferPropertyRequest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/taxation/service/interfaces/IPropertyService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taxation/model/Property.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taxation/common/URLConstants.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/controller/PropertyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taxation/service/interfaces/IPropertyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PropertyService.java" />
       </list>
     </option>
@@ -588,8 +588,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -630,6 +630,15 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="taxation" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PanchayatTaxationManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="taxation-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="taxation" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -647,12 +656,12 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="Trans&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/resource/TransferPropertyRequest.java&#10;PropertyContr&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;PropertyServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyService.java&#10;UserRequest&#9;PSI&#9;JAVA://java.util.Arrays.LegacyMergeSort#userRequested&#10;UserReque&#9;null&#9;null&#10;PersonCont&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PersonController.java&#10;proper&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;PersonSer&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;propertyCont&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;property&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyService.java&#10;propertyServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/IPropertyService.java&#10;Person&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;PersonServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/IPersonService.java&#10;person&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PersonController.java&#10;Itax&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/ITaxDetailsDAO.java&#10;propertySErv&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyService.java&#10;taxDeta&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/TaxDetail.java&#10;TaxDetail&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/TaxDetailsService.java&#10;SeedSer&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SeedService.java&#10;seed&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/ISeedService.java&#10;Property&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/Property.java&#10;TaxDeta&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/TaxDetailsService.java&#10;TaxDe&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/TaxDetail.java&#10;PersonS&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;per&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;PropertyCont&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;IPE&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPersonDAO.java&#10;Iperson&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPersonDAO.java&#10;PersonDao&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPersonDAO.java&#10;PropertyCo&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;u&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/common/URLConstants.java&#10;Property.java&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/Property.java&#10;PropertyDao&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPropertyDAO.java&#10;Seed&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SeedService.java&#10;PropertyType&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyTypeService.java&#10;SeedServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SeedService.java&#10;Panchayat&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/Panchayat.java" />
+    <property name="SearchEverywhereHistoryKey" value="UserCon&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/UserController.java&#10;User&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/User.java&#10;Trans&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/resource/TransferPropertyRequest.java&#10;PropertyContr&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;PropertyServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyService.java&#10;UserRequest&#9;PSI&#9;JAVA://java.util.Arrays.LegacyMergeSort#userRequested&#10;UserReque&#9;null&#9;null&#10;PersonCont&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PersonController.java&#10;proper&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;PersonSer&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;propertyCont&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;property&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyService.java&#10;propertyServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/IPropertyService.java&#10;Person&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;PersonServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/IPersonService.java&#10;person&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PersonController.java&#10;Itax&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/ITaxDetailsDAO.java&#10;propertySErv&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyService.java&#10;taxDeta&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/TaxDetail.java&#10;TaxDetail&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/TaxDetailsService.java&#10;SeedSer&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SeedService.java&#10;seed&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/ISeedService.java&#10;Property&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/Property.java&#10;TaxDeta&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/TaxDetailsService.java&#10;TaxDe&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/TaxDetail.java&#10;PersonS&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;per&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;PropertyCont&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;IPE&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPersonDAO.java&#10;Iperson&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPersonDAO.java&#10;PersonDao&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPersonDAO.java&#10;PropertyCo&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;u&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/common/URLConstants.java&#10;Property.java&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/Property.java&#10;PropertyDao&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPropertyDAO.java&#10;Seed&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SeedService.java&#10;PropertyType&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyTypeService.java&#10;SeedServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SeedService.java&#10;Panchayat&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/Panchayat.java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -814,7 +823,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31881803" sideWeight="0.49083665" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33545816" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -830,50 +839,12 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.65318817" sideWeight="0.50278884" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49721116" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39968896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49561754" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49721116" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.65318817" sideWeight="0.49721116" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49721116" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31881803" sideWeight="0.49083665" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3243028" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/taxation/model/Property.java</url>
-          <line>152</line>
-          <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
@@ -883,13 +854,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PropertyUsageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="20" column="51" lean-forward="false" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/controller/SeedController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -1102,7 +1066,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,7 +1073,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="24" column="38" lean-forward="false" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1140,7 +1102,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1227,15 +1188,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
           <caret line="391" column="37" lean-forward="false" selection-start-line="391" selection-start-column="37" selection-end-line="391" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/model/Document.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1247,45 +1199,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/model/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/controller/AuthController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-318">
-          <caret line="38" column="13" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        <state relative-caret-position="186">
+          <caret line="62" column="25" lean-forward="false" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-197">
-          <caret line="19" column="15" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="15" />
+        <state relative-caret-position="18">
+          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/common/URLConstants.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="20" column="72" lean-forward="false" selection-start-line="20" selection-start-column="72" selection-end-line="20" selection-end-column="72" />
+        <state relative-caret-position="-14">
+          <caret line="38" column="13" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/model/Property.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/model/Document.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="111" column="20" lean-forward="false" selection-start-line="111" selection-start-column="15" selection-end-line="111" selection-end-column="20" />
-          <folding>
-            <element signature="e#4027#4028#0" expanded="true" />
-            <element signature="e#4050#4051#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/resource/TransferPropertyRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="321">
+          <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#350#351#0" expanded="true" />
@@ -1312,26 +1261,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/common/URLConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="21" column="46" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/model/Property.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="180" column="0" lean-forward="false" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+          <folding>
+            <element signature="e#4027#4028#0" expanded="true" />
+            <element signature="e#4050#4051#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/service/interfaces/IPropertyService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" column="98" lean-forward="false" selection-start-line="25" selection-start-column="98" selection-end-line="25" selection-end-column="98" />
+        <state relative-caret-position="396">
+          <caret line="27" column="67" lean-forward="false" selection-start-line="27" selection-start-column="67" selection-end-line="27" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/controller/PropertyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="103" column="1" lean-forward="true" selection-start-line="103" selection-start-column="1" selection-end-line="103" selection-end-column="1" />
+        <state relative-caret-position="291">
+          <caret line="101" column="37" lean-forward="false" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PropertyService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="139" column="4" lean-forward="false" selection-start-line="139" selection-start-column="4" selection-end-line="139" selection-end-column="4" />
+        <state relative-caret-position="178">
+          <caret line="80" column="31" lean-forward="false" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
           <folding />
         </state>
       </provider>
