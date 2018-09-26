@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.UUID;
 
 import com.taxation.dao.interfaces.ITaxDetailsDAO;
 import com.taxation.dao.interfaces.UserRepository;
@@ -77,7 +78,7 @@ public class PropertyService implements IPropertyService {
 		property.setPerson(person);
 		List<Document>	docList	=	iDocumentDAO.saveAll(property.getDocuments());
 		property.setDocuments(docList);
-		property.setCustomUniqueId("A_HARD_CODE");
+		property.setCustomUniqueId(generateUUID());
 		property.setActive(true);
 		Property createdProperty = iPropertyDAO.save(property);
 
@@ -148,6 +149,9 @@ public class PropertyService implements IPropertyService {
 		newProperty.setActive(true);
 		newProperty.setArea(property.getArea());
 		newProperty.setIsResidential(property.getIsResidential());
+		newProperty.setResidentName(property.getResidentName());
+		newProperty.setResidentName(transferPropertyRequest.getResidentName());
+		newProperty.setSubHolder(transferPropertyRequest.getNewSubHolder());
 		newProperty.setIsWaterConnected(property.getWaterConnected());
 		newProperty.setEastLandmark(property.getEastLandmark());
 		newProperty.setWestLandmark(property.getWestLandmark());
@@ -174,8 +178,23 @@ public class PropertyService implements IPropertyService {
 	}
 
 	@Override
-	public void updateProperty(Property property) throws Exception {
-
+	public void updateProperty(Property property,Long pid, Long uid) throws Exception {
+		if(!iPanchayatService.getPanchayatById(pid).isPresent())throw new Exception("Panchayat	not	found :" + pid);
+		Panchayat	panchayat=iPanchayatService.getPanchayatById(pid).get();
+		property.setPanchayat(panchayat);
+		if(!userRepository.findById(uid).isPresent())throw new Exception("User	not	found :" + uid);
+		User	user=userRepository.findById(uid).get();
+		property.setUser(user);
+		Person person = personService.getPersonBySamagraId(property.getSamagraId());
+		if(person==null) throw new Exception("Invalid Samagra Id :" + property.getSamagraId());
+		property.setPerson(person);
+		List<Document>	docList	=	iDocumentDAO.saveAll(property.getDocuments());
+		property.setDocuments(docList);
+		iPropertyDAO.save(property);
+	}
+	
+	private	String	generateUUID(){
+		return	UUID.randomUUID().toString().substring(0, 8).toUpperCase();
 	}
 
 }

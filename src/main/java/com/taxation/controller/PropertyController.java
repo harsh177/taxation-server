@@ -4,22 +4,28 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.taxation.model.TaxDetail;
-import com.taxation.model.User;
-import com.taxation.resource.*;
-import com.taxation.security.CurrentUser;
-import com.taxation.service.interfaces.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.taxation.common.ApplicationConstants;
 import com.taxation.common.URLConstants;
 import com.taxation.entity.ApplicationResponse;
 import com.taxation.model.Property;
+import com.taxation.model.TaxDetail;
+import com.taxation.resource.FindByPhoneOrSamagraOrUniqueRequest;
+import com.taxation.resource.FindByPhoneOrSamagraRequest;
+import com.taxation.resource.FindByPhoneOrSamagraResponse;
+import com.taxation.resource.TransferPropertyRequest;
+import com.taxation.security.CurrentUser;
+import com.taxation.security.UserPrincipal;
+import com.taxation.service.interfaces.IPersonService;
 import com.taxation.service.interfaces.IPropertyService;
 
 @RestController
@@ -104,8 +110,8 @@ public class PropertyController {
 	}
 
 	@RequestMapping(value = URLConstants.PROPERTY_UPDATE, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
-	public ResponseEntity<ApplicationResponse> addProperty(@Valid @RequestBody Property property) throws Exception {
-		propertyService.updateProperty(property);
-		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Added Successfully",true,null), HttpStatus.OK);
+	public ResponseEntity<ApplicationResponse> addProperty(@Valid @RequestBody Property property,@CurrentUser UserPrincipal currentUser) throws Exception {
+		propertyService.updateProperty(property,currentUser.getPanchayat().getPanchayatId(),currentUser.getId());
+		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Updated Successfully",true,null), HttpStatus.OK);
 	}
 }
