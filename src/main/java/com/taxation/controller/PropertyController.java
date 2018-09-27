@@ -114,4 +114,10 @@ public class PropertyController {
 		propertyService.updateProperty(property,currentUser.getPanchayat().getPanchayatId(),currentUser.getId());
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Updated Successfully",true,null), HttpStatus.OK);
 	}
+
+	@RequestMapping(value = URLConstants.PROPERTY_DELETE, method = RequestMethod.DELETE, consumes = ApplicationConstants.APP_JSON)
+	public ResponseEntity<ApplicationResponse> deleteProperty(@PathVariable Integer propertyId) throws Exception {
+
+		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Property Deleted",true,null), HttpStatus.OK);
+	}
 }

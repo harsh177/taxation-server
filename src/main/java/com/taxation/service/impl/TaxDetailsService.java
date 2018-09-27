@@ -32,4 +32,9 @@ public class TaxDetailsService implements ITaxDetailsService {
 	public TaxDetail getById(Integer taxDetailId) {
 		 return iTaxDetailsDAO.findById(taxDetailId).get();
 	}
+
+	public void createTaxDetailsForThisMonth(){
+
+    }
+
 }

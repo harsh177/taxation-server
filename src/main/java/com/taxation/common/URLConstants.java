@@ -24,6 +24,7 @@ public class URLConstants {
 	
 	public static final String PROPERTY_TRANSFER = "/property/transfer/{pid}/{uid}";
 	public static final String PROPERTY_UPDATE = "property/update";
+	public static final String PROPERTY_DELETE = "property/{propertyId}";
 
 	// SeedController URL's
 	public static final String SEED_ALL = "/seed/seedAll";

@@ -15,4 +15,7 @@ public interface IPropertyDAO extends JpaRepository<Property,Integer> {
 
     @Query("select p from Property p where p.customUniqueId = ?1")
     List<Property> findByUniqueId(String id);
+
+    @Query("select p from Property p where p.isAcitve = true")
+    List<Property> getAllActiveProperties();
 }

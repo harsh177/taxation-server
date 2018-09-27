@@ -1,5 +1,6 @@
 package com.taxation.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -13,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -162,6 +165,15 @@ public class Property  extends Auditable<String>{
 	@ManyToMany
 	@JoinTable(name = "property_document_mapping", joinColumns = @JoinColumn(name = "property_id", unique = false) , inverseJoinColumns = @JoinColumn(name = "document_id", unique = false) )
 	private Collection<Document> documents = new ArrayList<>();
+
+	@Column
+	@CreationTimestamp
+	private LocalDateTime createDateTime;
+
+	@Column
+	@UpdateTimestamp
+	private LocalDateTime updateDateTime;
+
 
 	public Collection<Document> getDocuments() {
 		return documents;

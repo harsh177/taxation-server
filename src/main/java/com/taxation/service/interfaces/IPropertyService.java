@@ -26,4 +26,8 @@ public interface IPropertyService {
 	public void transferProperty(TransferPropertyRequest transferPropertyRequest,Long pid,Long uid) throws Exception;
 
 	public void updateProperty(Property property, Long pid, Long uid) throws Exception;
+
+	public void deleteProperty(Integer propertyId) throws Exception;
+
+	public List<Property> getAllActiveProperties();
 }

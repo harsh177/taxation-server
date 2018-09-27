@@ -192,7 +192,20 @@ public class PropertyService implements IPropertyService {
 		property.setDocuments(docList);
 		iPropertyDAO.save(property);
 	}
-	
+
+	@Override
+	public void deleteProperty(Integer propertyId) throws Exception {
+		Property property = iPropertyDAO.findById(propertyId).get();
+		System.out.println(property);
+		property.setActive(false);
+		iPropertyDAO.save(property);
+	}
+
+	@Override
+	public List<Property> getAllActiveProperties() {
+	 return	iPropertyDAO.getAllActiveProperties();
+	}
+
 	private	String	generateUUID(){
 		return	UUID.randomUUID().toString().substring(0, 8).toUpperCase();
 	}
