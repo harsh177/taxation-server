@@ -6,6 +6,7 @@ import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.taxation.model.User;
+import com.taxation.security.UserPrincipal;
 
 public class AuditorAwareImpl implements AuditorAware<String> {
 
@@ -13,6 +14,7 @@ public class AuditorAwareImpl implements AuditorAware<String> {
     public Optional<String> getCurrentAuditor() {
         //return Optional.of("Naresh");
         // Can use Spring Security to return currently logged in user
-        return Optional.of(((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+    	UserPrincipal	up=(UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return Optional.of(up.getUsername());
     }
 }

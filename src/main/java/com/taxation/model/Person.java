@@ -1,7 +1,5 @@
 package com.taxation.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -14,14 +12,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.taxation.model.audit.Auditable;
 
 @Entity
 @Table(name = "person")
-public class Person implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Person extends Auditable<String> {
 
 	@Id
 	@GeneratedValue
@@ -71,10 +66,6 @@ public class Person implements Serializable {
 
 	public void setActive(Boolean active) {
 		this.active = active;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	public Integer getPersonId() {

@@ -18,10 +18,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(
-        value = {"createdBy","createdAt", "lastModifiedBy","lastModifiedDate"},
-        allowGetters = true
+        value = {"createdBy","createdAt", "lastModifiedBy","lastModifiedDate"}
 )
-public abstract class Auditable<U> {
+public class Auditable<U> {
 
     @CreatedBy
     protected U createdBy;

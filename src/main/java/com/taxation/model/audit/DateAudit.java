@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
         value = {"createdAt", "updatedAt"},
         allowGetters = true
 )
-public abstract class DateAudit implements Serializable {
+public class DateAudit implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

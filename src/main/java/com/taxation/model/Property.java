@@ -16,10 +16,11 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.taxation.model.audit.Auditable;
 
 @Entity
 @Table(name = "property")
-public class Property {
+public class Property  extends Auditable<String>{
 
 	@Id
 	@GeneratedValue

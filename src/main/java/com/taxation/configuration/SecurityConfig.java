@@ -101,6 +101,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .permitAll()
                     .antMatchers("/api/seed/**")
                     	.permitAll()
+                    .antMatchers("/api/downloadFile/**")
+                    	.permitAll()
                     .anyRequest()
                         .authenticated();
 

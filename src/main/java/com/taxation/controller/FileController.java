@@ -25,6 +25,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.taxation.common.URLConstants;
 import com.taxation.entity.UploadFileResponse;
+import com.taxation.security.CurrentUser;
+import com.taxation.security.UserPrincipal;
 import com.taxation.service.impl.FileStorageService;
 
 @RestController
@@ -50,7 +52,8 @@ public class FileController {
     }
 
     @PostMapping("/uploadMultipleFiles")
-    public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
+    public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files,@CurrentUser UserPrincipal currentUser) {
+    	System.out.println(currentUser);
         return Arrays.asList(files)
                 .stream()
                 .map(file -> uploadFile(file))
