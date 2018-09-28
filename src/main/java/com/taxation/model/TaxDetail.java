@@ -1,6 +1,7 @@
 package com.taxation.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.taxation.model.audit.Auditable;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -18,7 +19,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="tax_detail")
-public class TaxDetail  implements Serializable{
+public class TaxDetail extends Auditable<String> implements Serializable {
 	/**
 	 * 
 	 */
