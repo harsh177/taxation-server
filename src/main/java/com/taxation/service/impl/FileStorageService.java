@@ -1,12 +1,18 @@
 package com.taxation.service.impl;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -70,5 +76,18 @@ public class FileStorageService {
         } catch (MalformedURLException ex) {
             throw new MyFileNotFoundException("File not found " + fileName, ex);
         }
+        
     }
+    
+    public	String	getLogoBase64(String	fileName) throws IOException{
+        Path	p = Paths.get("./logos").toAbsolutePath().normalize();
+        Path filePath = p.resolve(fileName).normalize();
+        File	f=filePath.toFile();
+        InputStream	i=new	FileInputStream(f);
+        byte[]	imageBytes	=	new	byte[(int)f.length()];
+        i.read(imageBytes, 0, imageBytes.length);
+        i.close();
+    	return	Base64.encodeBase64String(imageBytes);
+    }
+    
 }

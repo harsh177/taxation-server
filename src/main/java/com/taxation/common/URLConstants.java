@@ -14,7 +14,7 @@ public class URLConstants {
 	public static final String PERSON_UPDATE = "/person/edit";
 	
 	// PropertyController URL's
-	public static final String PROPERTY_ADD = "/property/add/{pid}/{uid}";
+	public static final String PROPERTY_ADD = "/property/add";
 	public static final String PROPERTY_GET_ALL = "/property/getAll";
 	public static final String PAY_TAX = "/property/payTax";
 	public static final String PROPERTY_GET_BY_PHONE_OR_SAMAGRA = "/property/getByPhoneOrSamagra";
@@ -22,7 +22,7 @@ public class URLConstants {
 	public static final String PROPERTY_GET_BY_PHONE = "/property/phone/{phoneNumber}";
 	public static final String PROPERTY_GET_BY_SAMAGRA = "/property/samagra/{samagraId}";
 	
-	public static final String PROPERTY_TRANSFER = "/property/transfer/{pid}/{uid}";
+	public static final String PROPERTY_TRANSFER = "/property/transfer";
 	public static final String PROPERTY_UPDATE = "property/update";
 	public static final String PROPERTY_DELETE = "property/{propertyId}";
 

@@ -41,8 +41,8 @@ public class PropertyController {
 	private IPersonService personService;
 	
 	@RequestMapping(value = URLConstants.PROPERTY_ADD, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
-	public ResponseEntity<ApplicationResponse> addProperty(@Valid @RequestBody Property property,@PathVariable Long pid,@PathVariable Long uid) throws Exception {
-		propertyService.createProperty(property,pid,uid);
+	public ResponseEntity<ApplicationResponse> addProperty(@Valid @RequestBody Property property,@CurrentUser UserPrincipal currentUser) throws Exception {
+		propertyService.createProperty(property,currentUser.getPanchayat().getPanchayatId(),currentUser.getId());
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Added Successfully",true,null), HttpStatus.OK);
 	}
 
@@ -103,21 +103,21 @@ public class PropertyController {
 	}
 
 	@RequestMapping(value = URLConstants.PROPERTY_TRANSFER, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
-	public ResponseEntity<ApplicationResponse> transferProperty(@RequestBody TransferPropertyRequest transferPropertyRequest,@PathVariable Long pid,@PathVariable Long uid) throws Exception {
+	public ResponseEntity<ApplicationResponse> transferProperty(@RequestBody TransferPropertyRequest transferPropertyRequest,@CurrentUser UserPrincipal currentUser) throws Exception {
 		System.out.println(transferPropertyRequest);
-		propertyService.transferProperty(transferPropertyRequest,pid,uid);
+		propertyService.transferProperty(transferPropertyRequest,currentUser.getPanchayat().getPanchayatId(),currentUser.getId());
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Transferred Successfully",true,null), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = URLConstants.PROPERTY_UPDATE, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
-	public ResponseEntity<ApplicationResponse> addProperty(@Valid @RequestBody Property property,@CurrentUser UserPrincipal currentUser) throws Exception {
+	public ResponseEntity<ApplicationResponse> updateProperty(@Valid @RequestBody Property property,@CurrentUser UserPrincipal currentUser) throws Exception {
 		propertyService.updateProperty(property,currentUser.getPanchayat().getPanchayatId(),currentUser.getId());
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Updated Successfully",true,null), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = URLConstants.PROPERTY_DELETE, method = RequestMethod.DELETE, consumes = ApplicationConstants.APP_JSON)
+	@RequestMapping(value = URLConstants.PROPERTY_DELETE, method = RequestMethod.DELETE, produces = ApplicationConstants.APP_JSON)
 	public ResponseEntity<ApplicationResponse> deleteProperty(@PathVariable Integer propertyId) throws Exception {
-
+		propertyService.deleteProperty(propertyId);
 		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("Property Deleted",true,null), HttpStatus.OK);
 	}
 }

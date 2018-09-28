@@ -28,6 +28,7 @@ import com.taxation.entity.UploadFileResponse;
 import com.taxation.security.CurrentUser;
 import com.taxation.security.UserPrincipal;
 import com.taxation.service.impl.FileStorageService;
+import com.taxation.service.impl.ReportService;
 
 @RestController
 @RequestMapping(URLConstants.TAXATION_API)
@@ -83,4 +84,31 @@ public class FileController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
                 .body(resource);
     }
+
+    @GetMapping("/downloadFile/report")
+    public ResponseEntity<Resource> downloadReportFile(HttpServletRequest request) throws Exception {
+        // Load file as Resource
+    	ReportService	rs=new	ReportService();
+    	
+        Resource resource = rs.getReport();
+
+        // Try to determine file's content type
+        String contentType = null;
+        try {
+            contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
+        } catch (IOException ex) {
+            logger.info("Could not determine file type.");
+        }
+
+        // Fallback to the default content type if type could not be determined
+        if(contentType == null) {
+            contentType = "application/octet-stream";
+        }
+
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType(contentType))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+                .body(resource);
+    }
+    
 }

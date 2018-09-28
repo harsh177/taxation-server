@@ -9,5 +9,7 @@ build/
 gradle/
 logs/
 uploads/
+logos/
+tempUploads/
 libs/
 out/
