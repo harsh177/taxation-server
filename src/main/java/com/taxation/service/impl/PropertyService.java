@@ -141,6 +141,7 @@ public class PropertyService implements IPropertyService {
 		Property newProperty = new Property();
 		if(property.getActive()) {
 			property.setTransferred(true);
+			property.setTransferredToSamagraId(transferPropertyRequest.getTransferToSamagraId());
 			iPropertyDAO.save(property);
 		}else {
 			throw new Exception("Property with Unique id :"+property.getCustomUniqueId()+"does not belong to current samagra and cant be transffered");

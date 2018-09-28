@@ -1,15 +1,11 @@
 package com.taxation.service.impl;
 
-import com.taxation.model.PaymentStatus;
-import com.taxation.model.Property;
-import com.taxation.model.Tax;
-import com.taxation.model.TaxDetail;
-import com.taxation.service.interfaces.IPropertyService;
-import com.taxation.service.interfaces.IScheduledServices;
-import com.taxation.service.interfaces.ITaxDetailsService;
-import com.taxation.service.interfaces.ITaxService;
+import com.taxation.common.URLConstants;
+import com.taxation.model.*;
+import com.taxation.service.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,6 +21,9 @@ public class ScheduledServices implements IScheduledServices{
     @Autowired
     private ITaxDetailsService iTaxDetailsService;
 
+    @Autowired
+    private ISchedularAuditService iSchedularAuditService;
+
     private Tax taxForPropertyWithWaterConnection = iTaxService.getTaxForWaterConnectedProperty();
     private Tax taxForPropertyWithoutWaterConnection = iTaxService.getTaxForWithoutWaterConnectionProperty();
 
@@ -32,8 +31,23 @@ public class ScheduledServices implements IScheduledServices{
 
     @Override
     public void createTaxDetailsForAllActivePropertiesForThisMonth() {
-        //Date todaysDate = new Date();
-        //if(todaysDate) a check for checking whether is first date only or not
+        SchedularAudit schedularAudit = iSchedularAuditService.getBySchedularName(URLConstants.PROPERTY_TAX_DETAILS_SCHEDULAR);
+        if(schedularAudit == null){
+            schedularAudit.setLastRanOn(new Date());
+            schedularAudit.setNameOfSchedular(URLConstants.PROPERTY_TAX_DETAILS_SCHEDULAR);
+            logicOfTaxDetailsCreationForAllProperties();
+            iSchedularAuditService.createShcedularAuditRecord(schedularAudit);
+        }else {
+            Date lastRanAt = schedularAudit.getLastRanOn();
+            Date currentDate = new Date();
+            if(currentDate.getMonth()!= lastRanAt.getMonth()){
+               logicOfTaxDetailsCreationForAllProperties();
+               schedularAudit.setLastRanOn(new Date());
+               iSchedularAuditService.createShcedularAuditRecord(schedularAudit);
+            }
+        }
+    }
+    void logicOfTaxDetailsCreationForAllProperties(){
         List<Property> properties= propertyService.getAllActiveProperties();
         List<TaxDetail> taxDetailsOfThisMonth = new ArrayList<>();
         for (Property p : properties) {

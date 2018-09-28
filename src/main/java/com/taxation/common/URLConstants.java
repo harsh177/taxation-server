@@ -35,4 +35,7 @@ public class URLConstants {
 	public static final String TAX_DETAILS_BY_PROPERTY =  "/taxDetails/{propertyId}/getAll";
 	public static final String TAX_DETAILS_BY_TAX_DETAIL =  "/taxDetails/{taxDetailId}";
 
+	//Schedular Names
+	public static final String PROPERTY_TAX_DETAILS_SCHEDULAR = "property_tax_details_schedular";
+
 }

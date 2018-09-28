@@ -88,38 +88,6 @@ public class Property  extends Auditable<String>{
 	@Column(name = "custom_unique_id")
 	private String customUniqueId;
 
-	public String getCustomUniqueId() {
-		return customUniqueId;
-	}
-
-	public void setCustomUniqueId(String customUniqueId) {
-		this.customUniqueId = customUniqueId;
-	}
-
-	public Boolean getResidential() {
-		return isResidential;
-	}
-
-	public void setResidential(Boolean residential) {
-		isResidential = residential;
-	}
-
-	public Boolean getWaterConnected() {
-		return isWaterConnected;
-	}
-
-	public void setWaterConnected(Boolean waterConnected) {
-		isWaterConnected = waterConnected;
-	}
-
-	public Boolean getActive() {
-		return isActive;
-	}
-
-	public void setActive(Boolean active) {
-		isActive = active;
-	}
-
 	@Column(name = "is_active")
 	private Boolean isActive;
 
@@ -168,6 +136,18 @@ public class Property  extends Auditable<String>{
 	@ManyToMany
 	@JoinTable(name = "property_document_mapping", joinColumns = @JoinColumn(name = "property_id", unique = false) , inverseJoinColumns = @JoinColumn(name = "document_id", unique = false) )
 	private Collection<Document> documents = new ArrayList<>();
+
+
+	@Column(name = "transfer_to_samagra")
+	private String transferredToSamagraId;
+
+	public String getTransferredToSamagraId() {
+		return transferredToSamagraId;
+	}
+
+	public void setTransferredToSamagraId(String transferredToSamagraId) {
+		this.transferredToSamagraId = transferredToSamagraId;
+	}
 
 	public Collection<Document> getDocuments() {
 		return documents;
@@ -359,5 +339,37 @@ public class Property  extends Auditable<String>{
 
 	public void setTransferred(Boolean transferred) {
 		isTransferred = transferred;
+	}
+
+	public String getCustomUniqueId() {
+		return customUniqueId;
+	}
+
+	public void setCustomUniqueId(String customUniqueId) {
+		this.customUniqueId = customUniqueId;
+	}
+
+	public Boolean getResidential() {
+		return isResidential;
+	}
+
+	public void setResidential(Boolean residential) {
+		isResidential = residential;
+	}
+
+	public Boolean getWaterConnected() {
+		return isWaterConnected;
+	}
+
+	public void setWaterConnected(Boolean waterConnected) {
+		isWaterConnected = waterConnected;
+	}
+
+	public Boolean getActive() {
+		return isActive;
+	}
+
+	public void setActive(Boolean active) {
+		isActive = active;
 	}
 }
