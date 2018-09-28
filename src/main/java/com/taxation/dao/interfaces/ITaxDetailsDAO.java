@@ -12,4 +12,10 @@ public interface ITaxDetailsDAO extends JpaRepository<TaxDetail, Integer> {
     @Query("select td from TaxDetail td where td.property = ?1")
     public List<TaxDetail> getTaxDetailsByPropertyId(Property property);
 
+    @Query("select td from TaxDetail td where td.currentTaxPaymentStatus = 'DUE'")
+    public List<TaxDetail> getAllDueTaxDetails();
+
+    @Query("select td from TaxDetail td where td.currentTaxPaymentStatus = 'PAID'")
+    public List<TaxDetail> getAllPaidTaxDetails();
+
 }

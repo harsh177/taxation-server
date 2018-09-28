@@ -7,6 +7,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,8 +31,6 @@ public class TaxDetail  implements Serializable{
 	@Column(name = "tax_detail_id")
 	private Integer	taxDetailId;
 
-
-
 	@ManyToOne
 	@JoinColumn(name="property_id")
 	private Property property;
@@ -39,6 +39,7 @@ public class TaxDetail  implements Serializable{
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastTaxPaidOn; 
 	
+	@Enumerated(EnumType.STRING)
 	private PaymentStatus currentTaxPaymentStatus;
 	
 	private Float amount;

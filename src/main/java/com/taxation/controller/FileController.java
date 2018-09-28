@@ -25,10 +25,12 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.taxation.common.URLConstants;
 import com.taxation.entity.UploadFileResponse;
+import com.taxation.model.TaxDetail;
 import com.taxation.security.CurrentUser;
 import com.taxation.security.UserPrincipal;
 import com.taxation.service.impl.FileStorageService;
 import com.taxation.service.impl.ReportService;
+import com.taxation.service.interfaces.ITaxDetailsService;
 
 @RestController
 @RequestMapping(URLConstants.TAXATION_API)
@@ -38,6 +40,12 @@ public class FileController {
 
     @Autowired
     private FileStorageService fileStorageService;
+    
+    @Autowired
+    private	ITaxDetailsService	iTaxDetailsService;
+    
+    @Autowired
+    private	ReportService	reportService;
     
     @PostMapping("/uploadFile")
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
@@ -85,12 +93,16 @@ public class FileController {
                 .body(resource);
     }
 
-    @GetMapping("/downloadFile/report")
-    public ResponseEntity<Resource> downloadReportFile(HttpServletRequest request) throws Exception {
-        // Load file as Resource
-    	ReportService	rs=new	ReportService();
+    @GetMapping("/downloadFile/report/{all}")
+    public ResponseEntity<Resource> allPaidAndDueTaxDetails(@PathVariable	String	all,HttpServletRequest request) throws Exception {
+    	List<TaxDetail>	taxDetails=null;
+    	if(all.equals("PAID")){
+    		taxDetails=	iTaxDetailsService.getAllPaidTaxDetails();
+    	}else{
+    		taxDetails=	iTaxDetailsService.getAllDueTaxDetails();
+    	}
     	
-        Resource resource = rs.getReport();
+        Resource resource = this.reportService.getReport(this.reportService.createAllPaidAndDueInfo(taxDetails, all));
 
         // Try to determine file's content type
         String contentType = null;

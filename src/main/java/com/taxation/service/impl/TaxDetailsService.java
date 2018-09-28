@@ -37,4 +37,14 @@ public class TaxDetailsService implements ITaxDetailsService {
 
     }
 
+	@Override
+	public List<TaxDetail> getAllDueTaxDetails() {
+		return iTaxDetailsDAO.getAllDueTaxDetails();
+	}
+
+	@Override
+	public List<TaxDetail> getAllPaidTaxDetails() {
+		return iTaxDetailsDAO.getAllPaidTaxDetails();
+	}
+
 }
