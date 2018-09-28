@@ -140,7 +140,7 @@ public class PropertyService implements IPropertyService {
 		Property property = getById(transferPropertyRequest.getPropertyId());
 		Property newProperty = new Property();
 		if(property.getActive()) {
-			property.setActive(false);
+			property.setTransferred(true);
 			iPropertyDAO.save(property);
 		}else {
 			throw new Exception("Property with Unique id :"+property.getCustomUniqueId()+"does not belong to current samagra and cant be transffered");
@@ -173,7 +173,6 @@ public class PropertyService implements IPropertyService {
 		//the updated field
 		newProperty.setSamagraId(transferPropertyRequest.getTransferToSamagraId());
 		newProperty.setDocuments(transferPropertyRequest.getDocuments());
-		System.out.println(newProperty);
 		createProperty(newProperty,pid,uid);
 	}
 
@@ -196,7 +195,6 @@ public class PropertyService implements IPropertyService {
 	@Override
 	public void deleteProperty(Integer propertyId) throws Exception {
 		Property property = iPropertyDAO.findById(propertyId).get();
-		System.out.println(property);
 		property.setActive(false);
 		iPropertyDAO.save(property);
 	}
@@ -207,6 +205,7 @@ public class PropertyService implements IPropertyService {
 	}
 
 	private	String	generateUUID(){
+		//waah kya jugaadu kaam hai
 		return	UUID.randomUUID().toString().substring(0, 8).toUpperCase();
 	}
 

@@ -138,6 +138,9 @@ public class Property  extends Auditable<String>{
 	@JsonIgnore
 	private User user;
 
+	@Column(name = "is_transferred")
+	private Boolean isTransferred = false;
+
 	public User getUser() {
 		return user;
 	}
@@ -165,15 +168,6 @@ public class Property  extends Auditable<String>{
 	@ManyToMany
 	@JoinTable(name = "property_document_mapping", joinColumns = @JoinColumn(name = "property_id", unique = false) , inverseJoinColumns = @JoinColumn(name = "document_id", unique = false) )
 	private Collection<Document> documents = new ArrayList<>();
-
-	@Column
-	@CreationTimestamp
-	private LocalDateTime createDateTime;
-
-	@Column
-	@UpdateTimestamp
-	private LocalDateTime updateDateTime;
-
 
 	public Collection<Document> getDocuments() {
 		return documents;
@@ -359,4 +353,11 @@ public class Property  extends Auditable<String>{
 		this.subHolder = subHolder;
 	}
 
+	public Boolean getTransferred() {
+		return isTransferred;
+	}
+
+	public void setTransferred(Boolean transferred) {
+		isTransferred = transferred;
+	}
 }
