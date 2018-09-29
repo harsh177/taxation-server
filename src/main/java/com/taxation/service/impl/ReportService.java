@@ -12,7 +12,11 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.UUID;
 
-import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -31,12 +35,12 @@ public class ReportService {
 	
 	public	Map<String, Object[]> createAllPaidAndDueInfo(List<TaxDetail>	taxDetails,String	all){
 		Map<String, Object[]> empinfo = new TreeMap<String, Object[]>();
-		empinfo.put("1", new Object[] { "SAMAGRA ID", "PROPERTY	UNIQUE	ID", "SUBHOLDER	NAME","RESIDENT	NAME","AMOUNT	"+all });
+		empinfo.put("1", new Object[] { "SAMAGRA ID", "PROPERTY	UNIQUE ID", "SUBHOLDER NAME","RESIDENT NAME","AMOUNT "+all,"Date" });
 		int	counter=2;
 		for(int	i=0;i<taxDetails.size();i++){
 			TaxDetail	td	=	taxDetails.get(i);
 			Property	p=td.getProperty();
-			empinfo.put(counter+"", new Object[] { p.getSamagraId(), p.getCustomUniqueId(), p.getSubHolder(),p.getResidentName(),String.valueOf(td.getAmount()) });
+			empinfo.put(counter+"", new Object[] { p.getSamagraId(), p.getCustomUniqueId(), p.getSubHolder(),p.getResidentName(),td.getAmount(),String.valueOf(td.getLastTaxPaidOn()) });
 			counter++;
 		}
 		
@@ -49,7 +53,7 @@ public class ReportService {
 		XSSFWorkbook workbook = new XSSFWorkbook();
 
 		// Create a blank sheet
-		XSSFSheet spreadsheet = workbook.createSheet(" Employee Info ");
+		XSSFSheet spreadsheet = workbook.createSheet("Tax Info");
 
 		// Create row object
 		XSSFRow row;
@@ -60,14 +64,37 @@ public class ReportService {
 
 		for (String key : keyid) {
 			row = spreadsheet.createRow(rowid++);
+			
+			/*CellStyle c=workbook.createCellStyle();
+			c.setFillBackgroundColor(IndexedColors.LIGHT_BLUE.getIndex());
+			row.setRowStyle(c);
+			*/
+			
 			Object[] objectArr = empinfo.get(key);
 			int cellid = 0;
 
 			for (Object obj : objectArr) {
-				Cell cell = row.createCell(cellid++);
+				XSSFCell cell = row.createCell(cellid++);
+				if(obj instanceof Float){
+					cell.setCellValue((Float)obj);
+				}else
 				cell.setCellValue((String) obj);
 			}
 		}
+		
+		if(keyid.size()>1){
+		
+		XSSFRow rowTotal = spreadsheet.createRow(rowid + 2);
+		
+		XSSFCell cellTotalText = rowTotal.createCell(3);
+        cellTotalText.setCellValue("Total:");
+         
+        XSSFCell cellTotal = rowTotal.createCell(4);
+        cellTotal.setCellType(CellType.FORMULA);
+        cellTotal.setCellFormula("SUM(E2:E"+rowid+")");
+
+		}
+   
 
 		String fileName = UUID.randomUUID() + "TaxReport.xlsx";
 		Path p = Paths.get("./tempUploads").toAbsolutePath().normalize();
