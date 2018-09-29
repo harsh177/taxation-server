@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81134f93-f667-4d42-ab76-c2e951f9d8d7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/dao/interfaces/IShchedularAuditDAO.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/SchedularAuditService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/service/interfaces/ISchedularAuditService.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/PanchayatTaxationManager.iml" afterPath="$PROJECT_DIR$/.idea/modules/PanchayatTaxationManager.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/PanchayatTaxationManager_main.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/PanchayatTaxationManager_test.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taxation/PanchayatTaxationApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/PanchayatTaxationApplication.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taxation/common/URLConstants.java" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/common/URLConstants.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taxation/configuration/TaxationConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/configuration/TaxationConfig.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taxation/model/TaxDetail.java" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/model/TaxDetail.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/ScheduledServices.java" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/ScheduledServices.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PropertyService.java" afterPath="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PropertyService.java" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -56,14 +43,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IShchedularAuditDAO.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/dao/interfaces/IShchedularAuditDAO.java">
+      <file leaf-file-name="FileController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/controller/FileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="60" lean-forward="false" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-894">
+              <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PropertyService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PropertyService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -512,7 +507,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/service/interfaces/IPropertyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/model/Property.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/resource/TransferPropertyRequest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PropertyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/model/TaxDetail.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/service/interfaces/ISeedService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/configuration/TaxationConfig.java" />
@@ -523,6 +517,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/PanchayatTaxationApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/model/SchedularAudit.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taxation/dao/interfaces/IShchedularAuditDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PropertyService.java" />
       </list>
     </option>
   </component>
@@ -553,7 +548,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -594,16 +588,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="taxation" type="462c0819:PsiDirectoryNode" />
-              <item name="configuration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PanchayatTaxationManager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="taxation-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="taxation" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PanchayatTaxationManager" type="b2602c69:ProjectViewProjectNode" />
@@ -629,13 +614,14 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="Schedul&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/SchedularAudit.java&#10;Sche&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SchedularAuditService.java&#10;TaxDet&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/TaxDetail.java&#10;IPro&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPropertyDAO.java&#10;PersonSer&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;PropertyServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyService.java&#10;IPr&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/IPropertyService.java&#10;propertyContr&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;UserCon&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/UserController.java&#10;User&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/User.java&#10;Trans&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/resource/TransferPropertyRequest.java&#10;PropertyContr&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;UserRequest&#9;PSI&#9;JAVA://java.util.Arrays.LegacyMergeSort#userRequested&#10;UserReque&#9;null&#9;null&#10;PersonCont&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PersonController.java&#10;proper&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;propertyCont&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;property&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyService.java&#10;propertyServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/IPropertyService.java&#10;Person&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;PersonServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/IPersonService.java&#10;person&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PersonController.java&#10;Itax&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/ITaxDetailsDAO.java&#10;propertySErv&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyService.java&#10;taxDeta&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/TaxDetail.java&#10;TaxDetail&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/TaxDetailsService.java&#10;SeedSer&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SeedService.java&#10;seed&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/ISeedService.java&#10;Property&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/Property.java&#10;TaxDeta&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/TaxDetailsService.java&#10;TaxDe&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/TaxDetail.java&#10;PersonS&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;per&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;PropertyCont&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;IPE&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPersonDAO.java&#10;Iperson&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPersonDAO.java&#10;PersonDao&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPersonDAO.java&#10;PropertyCo&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;u&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/common/URLConstants.java&#10;Property.java&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/Property.java&#10;PropertyDao&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPropertyDAO.java&#10;Seed&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SeedService.java&#10;PropertyType&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyTypeService.java&#10;SeedServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SeedService.java&#10;Panchayat&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/Panchayat.java" />
+    <property name="SearchEverywhereHistoryKey" value="PropertyServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyService.java&#10;Schedul&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/SchedularAudit.java&#10;Sche&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SchedularAuditService.java&#10;TaxDet&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/TaxDetail.java&#10;IPro&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPropertyDAO.java&#10;PersonSer&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;IPr&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/IPropertyService.java&#10;propertyContr&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;UserCon&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/UserController.java&#10;User&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/User.java&#10;Trans&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/resource/TransferPropertyRequest.java&#10;PropertyContr&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;UserRequest&#9;PSI&#9;JAVA://java.util.Arrays.LegacyMergeSort#userRequested&#10;UserReque&#9;null&#9;null&#10;PersonCont&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PersonController.java&#10;proper&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;propertyCont&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;property&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyService.java&#10;propertyServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/IPropertyService.java&#10;Person&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;PersonServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/IPersonService.java&#10;person&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PersonController.java&#10;Itax&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/ITaxDetailsDAO.java&#10;propertySErv&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyService.java&#10;taxDeta&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/TaxDetail.java&#10;TaxDetail&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/TaxDetailsService.java&#10;SeedSer&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SeedService.java&#10;seed&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/interfaces/ISeedService.java&#10;Property&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/Property.java&#10;TaxDeta&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/TaxDetailsService.java&#10;TaxDe&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/TaxDetail.java&#10;PersonS&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;per&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PersonService.java&#10;PropertyCont&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;IPE&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPersonDAO.java&#10;Iperson&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPersonDAO.java&#10;PersonDao&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPersonDAO.java&#10;PropertyCo&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/controller/PropertyController.java&#10;u&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/common/URLConstants.java&#10;Property.java&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/Property.java&#10;PropertyDao&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/dao/interfaces/IPropertyDAO.java&#10;Seed&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SeedService.java&#10;PropertyType&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/PropertyTypeService.java&#10;SeedServ&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/service/impl/SeedService.java&#10;Panchayat&#9;FILE&#9;file:///home/npc/MyProjects/taxation-server/src/main/java/com/taxation/model/Panchayat.java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -783,54 +769,34 @@
   <component name="ToolWindowManager">
     <frame x="81" y="88" width="1303" height="780" extended-state="6" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.4932271" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49721116" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.50677294" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5660964" sideWeight="0.49721116" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49721116" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31881803" sideWeight="0.49083665" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27011952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49721116" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39968896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.65318817" sideWeight="0.50278884" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39968896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49561754" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49721116" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20528771" sideWeight="0.49721116" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.65318817" sideWeight="0.50278884" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43079317" sideWeight="0.49721116" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49721116" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31881803" sideWeight="0.49083665" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34023905" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34581673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39968896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49721116" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -847,13 +813,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/service/interfaces/ITaxDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/service/impl/TaxService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -935,9 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -945,9 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -970,7 +923,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -978,9 +930,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="36" column="44" lean-forward="false" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -988,7 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -996,7 +944,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1004,10 +951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="35" column="45" lean-forward="false" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
-          <folding>
-            <element signature="e#892#893#0" expanded="false" />
-            <element signature="e#949#950#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1015,20 +958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PropertyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="139" column="13" lean-forward="false" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
-          <folding>
-            <element signature="e#8017#8018#0" expanded="false" />
-            <element signature="e#8068#8069#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1053,7 +982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="25" column="24" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="25" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1061,7 +989,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="26" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="18" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1095,23 +1022,7 @@
           <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="40" selection-end-column="32" />
           <folding>
             <element signature="e#1113#1114#0" expanded="false" />
-            <element signature="e#1138#1139#0" expanded="false" />
-            <element signature="e#1189#1190#0" expanded="false" />
-            <element signature="e#1226#1227#0" expanded="false" />
-            <element signature="e#1259#1260#0" expanded="false" />
-            <element signature="e#1281#1282#0" expanded="false" />
-            <element signature="e#1327#1328#0" expanded="false" />
             <element signature="e#1358#1359#0" expanded="false" />
-            <element signature="e#1392#1393#0" expanded="false" />
-            <element signature="e#1419#1420#0" expanded="false" />
-            <element signature="e#1471#1472#0" expanded="false" />
-            <element signature="e#1512#1513#0" expanded="false" />
-            <element signature="e#1565#1566#0" expanded="false" />
-            <element signature="e#1602#1603#0" expanded="false" />
-            <element signature="e#1772#1773#0" expanded="false" />
-            <element signature="e#1792#1793#0" expanded="false" />
-            <element signature="e#1831#1832#0" expanded="false" />
-            <element signature="e#1858#1859#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1120,7 +1031,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1128,7 +1038,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="14" column="54" lean-forward="false" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1136,7 +1045,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="24" column="38" lean-forward="false" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1144,7 +1052,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1168,7 +1075,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1176,7 +1082,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="86" column="23" lean-forward="false" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1208,7 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1216,11 +1120,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="19" column="15" lean-forward="false" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#482#483#0" expanded="false" />
-            <element signature="e#538#539#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1228,7 +1127,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
           <caret line="38" column="97" lean-forward="false" selection-start-line="38" selection-start-column="97" selection-end-line="38" selection-end-column="97" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1236,7 +1134,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1252,7 +1149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-791">
           <caret line="33" column="73" lean-forward="false" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1268,9 +1164,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-221">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1278,21 +1171,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#478#479#0" expanded="true" />
-            <element signature="e#503#504#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#610#611#0" expanded="true" />
-            <element signature="e#648#649#0" expanded="true" />
-            <element signature="e#710#711#0" expanded="true" />
-            <element signature="e#764#765#0" expanded="true" />
-            <element signature="e#798#799#0" expanded="true" />
-            <element signature="e#830#831#0" expanded="true" />
-            <element signature="e#878#879#0" expanded="true" />
-            <element signature="e#920#921#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1301,8 +1179,24 @@
         <state relative-caret-position="180">
           <caret line="10" column="60" lean-forward="false" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/controller/FileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-894">
+          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taxation/service/impl/PropertyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

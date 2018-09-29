@@ -190,6 +190,25 @@ public class PropertyService implements IPropertyService {
 		property.setPerson(person);
 		List<Document>	docList	=	iDocumentDAO.saveAll(property.getDocuments());
 		property.setDocuments(docList);
+
+
+
+
+		TaxDetail taxDetail = new TaxDetail();
+		if(property.getIsWaterConnected()){
+			Tax tax = iTaxService.getTaxForWaterConnectedProperty();
+			taxDetail.setAmount(tax.getValue());
+
+		}else {
+			Tax tax = iTaxService.getTaxForWithoutWaterConnectionProperty();
+			taxDetail.setAmount(tax.getValue());
+		}
+
+
+
+
+
+
 		iPropertyDAO.save(property);
 	}
 
