@@ -1,5 +1,7 @@
 package com.taxation.service.impl;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -190,25 +192,27 @@ public class PropertyService implements IPropertyService {
 		property.setPerson(person);
 		List<Document>	docList	=	iDocumentDAO.saveAll(property.getDocuments());
 		property.setDocuments(docList);
-
-
-
-
 		TaxDetail taxDetail = new TaxDetail();
-		if(property.getIsWaterConnected()){
-			Tax tax = iTaxService.getTaxForWaterConnectedProperty();
-			taxDetail.setAmount(tax.getValue());
-
-		}else {
-			Tax tax = iTaxService.getTaxForWithoutWaterConnectionProperty();
-			taxDetail.setAmount(tax.getValue());
-		}
-
-
-
-
-
-
+		List<TaxDetail> taxDetails = iTaxDetailsService.getTaxDetailsByPropertyId(property);
+		System.out.println(taxDetails.size());
+		for (TaxDetail td: taxDetails) {
+			if(td.getCreatedAt().getMonth().getValue() == LocalDateTime.now().getMonth().getValue()){
+				if(property.getIsWaterConnected()){
+					System.out.println("IN IFFFFFF");
+					Tax tax = iTaxService.getTaxForWaterConnectedProperty();
+					td.setAmount(tax.getValue());
+					td.setCurrentTaxPaymentStatus(PaymentStatus.DUE);
+					iTaxDetailsService.save(td);
+				}else {
+					System.out.println("IN ELSE");
+					Tax tax = iTaxService.getTaxForWithoutWaterConnectionProperty();
+					td.setAmount(tax.getValue());
+					td.setCurrentTaxPaymentStatus(PaymentStatus.DUE);
+					iTaxDetailsService.save(td);
+				}
+				break;
+				}
+			}
 		iPropertyDAO.save(property);
 	}
 
