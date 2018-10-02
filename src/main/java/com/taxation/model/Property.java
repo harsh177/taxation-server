@@ -40,7 +40,13 @@ public class Property  extends Auditable<String>{
 	private String area;
 
 	@Column(length = 50)
-	private String city;
+	private String village;
+
+	@Column(length = 50)
+	private String tehsil;
+
+	@Column(length = 50)
+	private String district;
 
 	@Column(length = 8)
 	private String pincode;
@@ -197,12 +203,28 @@ public class Property  extends Auditable<String>{
 		this.area = area;
 	}
 
-	public String getCity() {
-		return city;
+	public String getVillage() {
+		return village;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+	public void setVillage(String village) {
+		this.village = village;
+	}
+
+	public String getTehsil() {
+		return tehsil;
+	}
+
+	public void setTehsil(String tehsil) {
+		this.tehsil = tehsil;
+	}
+
+	public String getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
 	}
 
 	public String getPincode() {

@@ -30,4 +30,7 @@ public interface IPropertyService {
 	public void deleteProperty(Integer propertyId) throws Exception;
 
 	public List<Property> getAllActiveProperties();
-}
+
+	public void createTransferredProperty(Property property,Long	pid,Long	uid) throws Exception;
+
+	}
