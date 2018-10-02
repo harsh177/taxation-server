@@ -1,5 +1,7 @@
 package com.taxation.model.audit;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.EntityListeners;
@@ -26,15 +28,13 @@ public class Auditable<U> {
     protected U createdBy;
 
     @CreatedDate
-    @Temporal(TemporalType.TIMESTAMP)
-    protected Date createdAt;
+    protected LocalDateTime createdAt;
 
     @LastModifiedBy
     protected U lastModifiedBy;
 
     @LastModifiedDate
-    @Temporal(TemporalType.TIMESTAMP)
-    protected Date lastModifiedDate;
+	protected LocalDateTime lastModifiedDate;
 
 	public U getCreatedBy() {
 		return createdBy;
@@ -42,14 +42,6 @@ public class Auditable<U> {
 
 	public void setCreatedBy(U createdBy) {
 		this.createdBy = createdBy;
-	}
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
 	}
 
 	public U getLastModifiedBy() {
@@ -60,12 +52,19 @@ public class Auditable<U> {
 		this.lastModifiedBy = lastModifiedBy;
 	}
 
-	public Date getLastModifiedDate() {
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public LocalDateTime getLastModifiedDate() {
 		return lastModifiedDate;
 	}
 
-	public void setLastModifiedDate(Date lastModifiedDate) {
+	public void setLastModifiedDate(LocalDateTime lastModifiedDate) {
 		this.lastModifiedDate = lastModifiedDate;
 	}
-
 }

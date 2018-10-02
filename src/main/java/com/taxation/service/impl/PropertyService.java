@@ -1,5 +1,7 @@
 package com.taxation.service.impl;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -158,14 +160,16 @@ public class PropertyService implements IPropertyService {
 		newProperty.setWestLandmark(property.getWestLandmark());
 		newProperty.setNorthLandmark(property.getNorthLandmark());
 		newProperty.setSouthLandmark(property.getSouthLandmark());
-		newProperty.setCity(property.getCity());
+		newProperty.setVillage(property.getVillage());
+		newProperty.setTehsil(property.getTehsil());
+		newProperty.setDistrict(property.getDistrict());
 		newProperty.setPropertyNumber(property.getPropertyNumber());
 		newProperty.setPanchayat(property.getPanchayat());
 		newProperty.setSharedWallDescription(property.getSharedWallDescription());
 		newProperty.setWaterBillDescription(property.getWaterBillDescription());
 		newProperty.setLength(property.getLength());
 		newProperty.setWidth(property.getWidth());
-
+        newProperty.setCustomUniqueId(property.getCustomUniqueId());
 		BeanUtils.copyProperties(property.getPropertyUsages(),newProperty.getPropertyUsages());
 		BeanUtils.copyProperties(property.getPropertyTypes(),newProperty.getPropertyTypes());
 //		newProperty.setPropertyUsages(property.getPropertyUsages());
@@ -174,7 +178,7 @@ public class PropertyService implements IPropertyService {
 		//the updated field
 		newProperty.setSamagraId(transferPropertyRequest.getTransferToSamagraId());
 		newProperty.setDocuments(transferPropertyRequest.getDocuments());
-		createProperty(newProperty,pid,uid);
+		createTransferredProperty(newProperty,pid,uid);
 	}
 
 	@Override
@@ -190,25 +194,27 @@ public class PropertyService implements IPropertyService {
 		property.setPerson(person);
 		List<Document>	docList	=	iDocumentDAO.saveAll(property.getDocuments());
 		property.setDocuments(docList);
-
-
-
-
 		TaxDetail taxDetail = new TaxDetail();
-		if(property.getIsWaterConnected()){
-			Tax tax = iTaxService.getTaxForWaterConnectedProperty();
-			taxDetail.setAmount(tax.getValue());
-
-		}else {
-			Tax tax = iTaxService.getTaxForWithoutWaterConnectionProperty();
-			taxDetail.setAmount(tax.getValue());
-		}
-
-
-
-
-
-
+		List<TaxDetail> taxDetails = iTaxDetailsService.getTaxDetailsByPropertyId(property);
+		System.out.println(taxDetails.size());
+		for (TaxDetail td: taxDetails) {
+			if(td.getCreatedAt().getMonth().getValue() == LocalDateTime.now().getMonth().getValue()){
+				if(property.getIsWaterConnected()){
+					System.out.println("IN IFFFFFF");
+					Tax tax = iTaxService.getTaxForWaterConnectedProperty();
+					td.setAmount(tax.getValue());
+					td.setCurrentTaxPaymentStatus(PaymentStatus.DUE);
+					iTaxDetailsService.save(td);
+				}else {
+					System.out.println("IN ELSE");
+					Tax tax = iTaxService.getTaxForWithoutWaterConnectionProperty();
+					td.setAmount(tax.getValue());
+					td.setCurrentTaxPaymentStatus(PaymentStatus.DUE);
+					iTaxDetailsService.save(td);
+				}
+				break;
+				}
+			}
 		iPropertyDAO.save(property);
 	}
 
@@ -227,6 +233,36 @@ public class PropertyService implements IPropertyService {
 	private	String	generateUUID(){
 		//waah kya jugaadu kaam hai
 		return	UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+	}
+
+	@Override
+	public void createTransferredProperty(Property property,Long	pid,Long	uid) throws Exception {
+		if(!iPanchayatService.getPanchayatById(pid).isPresent())throw new Exception("Panchayat	not	found :" + pid);
+		Panchayat	panchayat=iPanchayatService.getPanchayatById(pid).get();
+		property.setPanchayat(panchayat);
+		if(!userRepository.findById(uid).isPresent())throw new Exception("User	not	found :" + uid);
+		User	user=userRepository.findById(uid).get();
+		property.setUser(user);
+		Person person = personService.getPersonBySamagraId(property.getSamagraId());
+		if(person==null) throw new Exception("Invalid Samagra Id :" + property.getSamagraId());
+		property.setPerson(person);
+		List<Document>	docList	=	iDocumentDAO.saveAll(property.getDocuments());
+		property.setDocuments(docList);
+		property.setActive(true);
+		Property createdProperty = iPropertyDAO.save(property);
+
+		TaxDetail taxDetail = new TaxDetail();
+		if(createdProperty.getIsWaterConnected()){
+			Tax tax = iTaxService.getTaxForWaterConnectedProperty();
+			taxDetail.setAmount(tax.getValue());
+
+		}else {
+			Tax tax = iTaxService.getTaxForWithoutWaterConnectionProperty();
+			taxDetail.setAmount(tax.getValue());
+		}
+		taxDetail.setProperty(createdProperty);
+		taxDetail.setCurrentTaxPaymentStatus(PaymentStatus.DUE);
+		iTaxDetailsService.save(taxDetail);
 	}
 
 }
