@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface IPropertyDAO extends JpaRepository<Property,Integer> {
-    @Query("select p from Property p where p.samagraId = ?1")
+    @Query("select p from Property p where p.samagraId = ?1 and p.isActive = true")
     List<Property> findBySamagraId(String id);
 
     @Query("select p from Property p where p.customUniqueId = ?1")
