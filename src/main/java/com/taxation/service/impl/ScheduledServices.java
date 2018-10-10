@@ -49,8 +49,7 @@ public class ScheduledServices implements IScheduledServices{
         }else {
             LocalDateTime lastRanAt = schedularAudit.getLastRanOn();
             LocalDateTime currentDate = LocalDateTime.now();
-           // if(currentDate.getMonth().getValue()!= lastRanAt.getMonth().getValue()){
-            if(currentDate.getDayOfMonth() != lastRanAt.getDayOfMonth()){
+            if(currentDate.getMonth().getValue()!= lastRanAt.getMonth().getValue()){
                 logicOfTaxDetailsCreationForAllProperties();
                schedularAudit.setLastRanOn(currentDate);
                iSchedularAuditService.createShcedularAuditRecord(schedularAudit);
