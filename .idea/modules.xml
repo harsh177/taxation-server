@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/PanchayatTaxationManager.iml" filepath="$PROJECT_DIR$/.idea/modules/PanchayatTaxationManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PanchayatTaxationManager_main.iml" filepath="$PROJECT_DIR$/.idea/modules/PanchayatTaxationManager_main.iml" group="PanchayatTaxationManager" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PanchayatTaxationManager_test.iml" filepath="$PROJECT_DIR$/.idea/modules/PanchayatTaxationManager_test.iml" group="PanchayatTaxationManager" />
     </modules>
   </component>
 </project>
