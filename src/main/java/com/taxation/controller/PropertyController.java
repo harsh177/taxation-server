@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.taxation.service.interfaces.IScheduledServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -39,6 +40,7 @@ public class PropertyController {
 	@Autowired
 	@Qualifier("personService")
 	private IPersonService personService;
+
 	
 	@RequestMapping(value = URLConstants.PROPERTY_ADD, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
 	public ResponseEntity<ApplicationResponse> addProperty(@Valid @RequestBody Property property,@CurrentUser UserPrincipal currentUser) throws Exception {

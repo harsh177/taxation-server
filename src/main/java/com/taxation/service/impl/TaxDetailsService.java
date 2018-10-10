@@ -1,17 +1,22 @@
 package com.taxation.service.impl;
 
+import com.taxation.common.URLConstants;
 import com.taxation.dao.interfaces.ITaxDetailsDAO;
-import com.taxation.model.Property;
-import com.taxation.model.TaxDetail;
-import com.taxation.service.interfaces.ITaxDetailsService;
+import com.taxation.model.*;
+import com.taxation.service.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TaxDetailsService implements ITaxDetailsService {
 
     @Autowired
     private ITaxDetailsDAO iTaxDetailsDAO;
+
+    @Autowired
+    private IScheduledServices scheduledServices;
 
     @Override
     public void save(TaxDetail taxDetail) {
@@ -47,4 +52,8 @@ public class TaxDetailsService implements ITaxDetailsService {
 		return iTaxDetailsDAO.getAllPaidTaxDetails();
 	}
 
+    @Override
+    public void createTaxDetailsForAllActivePropertiesForThisMonth() throws Exception {
+        scheduledServices.createTaxDetailsForAllActivePropertiesForThisMonth();
+    }
 }

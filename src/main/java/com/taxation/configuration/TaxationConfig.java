@@ -49,6 +49,11 @@ public class TaxationConfig {
 	@Qualifier("schedularAuditService")
 	public ISchedularAuditService getSchedularAuditService(){ return new SchedularAuditService();}
 
+	@Bean
+	@Qualifier("scheduledServices")
+	public IScheduledServices getScheduledServices(){ return new ScheduledServices();}
+
+
 	/*@Bean
 	public FilterRegistrationBean<MyFilter> myFilterBean() {
 		final FilterRegistrationBean<MyFilter> filterRegBean = new FilterRegistrationBean<MyFilter>();

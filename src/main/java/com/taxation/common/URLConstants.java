@@ -26,6 +26,7 @@ public class URLConstants {
 	public static final String PROPERTY_UPDATE = "property/update";
 	public static final String PROPERTY_DELETE = "property/{propertyId}";
 
+
 	// SeedController URL's
 	public static final String SEED_ALL = "/seed/seedAll";
 	public static final String GET_PROPERTY_USAGES = "/seed/propertyUsage/getAll";
@@ -34,6 +35,7 @@ public class URLConstants {
 	//TaxDetails URLS
 	public static final String TAX_DETAILS_BY_PROPERTY =  "/taxDetails/{propertyId}/getAll";
 	public static final String TAX_DETAILS_BY_TAX_DETAIL =  "/taxDetails/{taxDetailId}";
+	public static final String CREATE_TAX_DETAILS_OF_ALL_PROPERTIES_FOR_MONTH =  "/taxDetails/createForAllProperties";
 
 	//Schedular Names
 	public static final String PROPERTY_TAX_DETAILS_SCHEDULAR = "property_tax_details_schedular";

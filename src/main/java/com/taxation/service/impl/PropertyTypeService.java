@@ -23,5 +23,4 @@ public class PropertyTypeService implements IPropertyTypeService {
         return iPropertyTypeDao.findAll();
     }
 
-
 }
