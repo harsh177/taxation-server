@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.security.CodeSource;
+import java.time.LocalDateTime;
 
 @Component
 public class TaxationSchedular {
@@ -22,11 +23,11 @@ public class TaxationSchedular {
 		//System.out.println("Schedular is running"); 
 	}
 
-	@Scheduled(fixedRate = 1000 *10)
+	@Scheduled(fixedRate = 1000 *60*60*3)
 	public void createBackUp(){
-		String executeCmd = "mysqldump -u root -p jaishreeram -B ptm -r " + "/home/npc/MyProjects/taxation-client";
+		String executeCmd = "mysqldump -u root --password=jaishreeram -B ptm -r D:/Backup_Taxation/Taxation_Backup_"+System.currentTimeMillis()+".sql";
 
-			System.out.println(executeCmd);
+			//System.out.println(executeCmd);
 
 			Process runtimeProcess;
 
@@ -52,7 +53,7 @@ public class TaxationSchedular {
 				ex.printStackTrace();
 			}
 
-		}
+		
     }
 
 
