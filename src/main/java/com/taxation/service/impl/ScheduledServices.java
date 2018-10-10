@@ -38,11 +38,14 @@ public class ScheduledServices implements IScheduledServices{
          Tax taxForPropertyWithoutWaterConnection = iTaxService.getTaxForWithoutWaterConnectionProperty();
 
         SchedularAudit schedularAudit = iSchedularAuditService.getBySchedularName(URLConstants.PROPERTY_TAX_DETAILS_SCHEDULAR);
+        System.out.println(schedularAudit);
+
         if(schedularAudit == null){
-            schedularAudit.setLastRanOn(LocalDateTime.now());
-            schedularAudit.setNameOfSchedular(URLConstants.PROPERTY_TAX_DETAILS_SCHEDULAR);
+            SchedularAudit sa = new SchedularAudit();
+            sa.setLastRanOn(LocalDateTime.now());
+            sa.setNameOfSchedular(URLConstants.PROPERTY_TAX_DETAILS_SCHEDULAR);
             logicOfTaxDetailsCreationForAllProperties();
-            iSchedularAuditService.createShcedularAuditRecord(schedularAudit);
+            iSchedularAuditService.createShcedularAuditRecord(sa);
         }else {
             LocalDateTime lastRanAt = schedularAudit.getLastRanOn();
             LocalDateTime currentDate = LocalDateTime.now();

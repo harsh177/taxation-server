@@ -48,7 +48,7 @@ public class TaxDetailsController {
         return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(taxDetail,true,"Tax Details Fetched"), HttpStatus.OK);
     }
 
-    @RequestMapping(value = URLConstants.CREATE_TAX_DETAILS_OF_ALL_PROPERTIES_FOR_MONTH, method = RequestMethod.GET, consumes = ApplicationConstants.APP_JSON)
+    @RequestMapping(value = URLConstants.CREATE_TAX_DETAILS_OF_ALL_PROPERTIES_FOR_MONTH, method = RequestMethod.GET, produces = ApplicationConstants.APP_JSON)
     public ResponseEntity<ApplicationResponse> createTaxDetailsOfAllPropertiesForThisMonth() throws Exception {
         taxDetailsService.createTaxDetailsForAllActivePropertiesForThisMonth();
         return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("All Details created Successfully",true,null), HttpStatus.OK);
