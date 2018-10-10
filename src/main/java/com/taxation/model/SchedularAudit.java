@@ -2,6 +2,7 @@ package com.taxation.model;
 
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -17,8 +18,7 @@ public class SchedularAudit {
     private String nameOfSchedular;
 
     @Column(name = "last_ran_on", columnDefinition="DATETIME")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastRanOn;
+    private LocalDateTime lastRanOn;
 
     public Integer getId() {
         return id;
@@ -36,11 +36,11 @@ public class SchedularAudit {
         this.nameOfSchedular = nameOfSchedular;
     }
 
-    public Date getLastRanOn() {
+    public LocalDateTime getLastRanOn() {
         return lastRanOn;
     }
 
-    public void setLastRanOn(Date lastRanOn) {
+    public void setLastRanOn(LocalDateTime lastRanOn) {
         this.lastRanOn = lastRanOn;
     }
 }

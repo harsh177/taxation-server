@@ -9,8 +9,10 @@ import com.taxation.model.TaxDetail;
 import com.taxation.service.impl.TaxDetailsService;
 import com.taxation.service.interfaces.IPersonService;
 import com.taxation.service.interfaces.IPropertyService;
+import com.taxation.service.interfaces.IScheduledServices;
 import com.taxation.service.interfaces.ITaxDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,5 +42,11 @@ public class TaxDetailsController {
     public ResponseEntity<ApplicationResponse> getTaxDetailsByTaxDetailId(@PathVariable Integer taxDetailId) {
         TaxDetail taxDetail = taxDetailsService.getById(taxDetailId);
         return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(taxDetail,true,"Tax Details Fetched"), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = URLConstants.CREATE_TAX_DETAILS_OF_ALL_PROPERTIES_FOR_MONTH, method = RequestMethod.GET, consumes = ApplicationConstants.APP_JSON)
+    public ResponseEntity<ApplicationResponse> createTaxDetailsOfAllPropertiesForThisMonth() throws Exception {
+        taxDetailsService.createTaxDetailsForAllActivePropertiesForThisMonth();
+        return new ResponseEntity<ApplicationResponse>(new ApplicationResponse("All Details created Successfully",true,null), HttpStatus.OK);
     }
 }

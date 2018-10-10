@@ -17,5 +17,6 @@ public interface ITaxDetailsService {
 
     public List<TaxDetail> getAllPaidTaxDetails();
 
+    public void createTaxDetailsForAllActivePropertiesForThisMonth() throws Exception;
 
 }
