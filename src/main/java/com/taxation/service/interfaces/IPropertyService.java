@@ -31,6 +31,8 @@ public interface IPropertyService {
 
 	public List<Property> getAllActiveProperties();
 
+	public List<Property> getAllActivePropertiesBasedOnArea(String area);
+	
 	public void createTransferredProperty(Property property,Long	pid,Long	uid) throws Exception;
 
 	}

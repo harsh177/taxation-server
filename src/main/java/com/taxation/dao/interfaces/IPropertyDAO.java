@@ -18,4 +18,7 @@ public interface IPropertyDAO extends JpaRepository<Property,Integer> {
 
     @Query("select p from Property p where p.isActive = true")
     List<Property> getAllActiveProperties();
+    
+    @Query("select p from Property p where p.area = ?1 and p.isActive = true")
+	List<Property> getAllActivePropertiesBasedOnArea(String area);
 }

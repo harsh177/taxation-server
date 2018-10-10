@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -25,11 +26,13 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.taxation.common.URLConstants;
 import com.taxation.entity.UploadFileResponse;
+import com.taxation.model.Property;
 import com.taxation.model.TaxDetail;
 import com.taxation.security.CurrentUser;
 import com.taxation.security.UserPrincipal;
 import com.taxation.service.impl.FileStorageService;
 import com.taxation.service.impl.ReportService;
+import com.taxation.service.interfaces.IPropertyService;
 import com.taxation.service.interfaces.ITaxDetailsService;
 
 @RestController
@@ -47,6 +50,11 @@ public class FileController {
     @Autowired
     private	ReportService	reportService;
     
+	@Autowired
+	@Qualifier("propertyService")
+	private IPropertyService propertyService;// If you are using interface and it has more then one implementation
+
+	
     @PostMapping("/uploadFile")
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
         String fileName = fileStorageService.storeFile(file);
@@ -94,16 +102,26 @@ public class FileController {
     }
 
     @GetMapping("/downloadFile/report/{all}")
-    public ResponseEntity<Resource> allPaidAndDueTaxDetails(@PathVariable	String	all,HttpServletRequest request) throws Exception {
+    public ResponseEntity<Resource> allPaidAndDueTaxDetails(@PathVariable	String	all,@RequestParam	String	area,HttpServletRequest request) throws Exception {
     	List<TaxDetail>	taxDetails=null;
+    	List<Property>	properties=null;
+    	Resource resource =null;
+    	
     	if(all.equals("PAID")){
     		taxDetails=	iTaxDetailsService.getAllPaidTaxDetails();
-    	}else{
+    		 resource = this.reportService.getReport(this.reportService.createAllPaidAndDueInfo(taxDetails, all));
+    	}else	if(all.equals("DUE")){
     		taxDetails=	iTaxDetailsService.getAllDueTaxDetails();
+    		 resource = this.reportService.getReport(this.reportService.createAllPaidAndDueInfo(taxDetails, all));
+    	}else{
+    		if(area.equalsIgnoreCase("--Select--")){
+    			properties=propertyService.getAllActiveProperties();
+    		}else{
+    			properties=propertyService.getAllActivePropertiesBasedOnArea(area);
+    		}
+    		resource = this.reportService.getPropertyReport(this.reportService.createPropertyInfo(properties));
     	}
-    	
-        Resource resource = this.reportService.getReport(this.reportService.createAllPaidAndDueInfo(taxDetails, all));
-
+        
         // Try to determine file's content type
         String contentType = null;
         try {

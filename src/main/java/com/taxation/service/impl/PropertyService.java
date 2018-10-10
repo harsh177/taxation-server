@@ -265,4 +265,10 @@ public class PropertyService implements IPropertyService {
 		iTaxDetailsService.save(taxDetail);
 	}
 
+	@Override
+	public List<Property> getAllActivePropertiesBasedOnArea(String area) {
+		
+		return iPropertyDAO.getAllActivePropertiesBasedOnArea(area);
+	}
+
 }
