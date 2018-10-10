@@ -42,7 +42,7 @@ public class FileController {
     private FileStorageService fileStorageService;
     
     @Autowired
-    private	ITaxDetailsService	iTaxDetailsService;
+    private	ITaxDetailsService	taxDetailsService;
     
     @Autowired
     private	ReportService	reportService;
@@ -97,9 +97,9 @@ public class FileController {
     public ResponseEntity<Resource> allPaidAndDueTaxDetails(@PathVariable	String	all,HttpServletRequest request) throws Exception {
     	List<TaxDetail>	taxDetails=null;
     	if(all.equals("PAID")){
-    		taxDetails=	iTaxDetailsService.getAllPaidTaxDetails();
+    		taxDetails=	taxDetailsService.getAllPaidTaxDetails();
     	}else{
-    		taxDetails=	iTaxDetailsService.getAllDueTaxDetails();
+    		taxDetails=	taxDetailsService.getAllDueTaxDetails();
     	}
     	
         Resource resource = this.reportService.getReport(this.reportService.createAllPaidAndDueInfo(taxDetails, all));

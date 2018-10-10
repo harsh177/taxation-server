@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 
+
 public interface ITaxDetailsService {
 
     public void save(TaxDetail taxDetail);
@@ -16,7 +17,6 @@ public interface ITaxDetailsService {
     public List<TaxDetail> getAllDueTaxDetails();
 
     public List<TaxDetail> getAllPaidTaxDetails();
-
     public void createTaxDetailsForAllActivePropertiesForThisMonth() throws Exception;
 
 }

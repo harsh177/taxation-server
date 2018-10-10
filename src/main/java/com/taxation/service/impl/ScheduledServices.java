@@ -21,19 +21,21 @@ public class ScheduledServices implements IScheduledServices{
     @Autowired
     private ITaxService iTaxService;
 
+
     @Autowired
     private ITaxDetailsService iTaxDetailsService;
 
     @Autowired
     private ISchedularAuditService iSchedularAuditService;
 
-    private Tax taxForPropertyWithWaterConnection = iTaxService.getTaxForWaterConnectedProperty();
-    private Tax taxForPropertyWithoutWaterConnection = iTaxService.getTaxForWithoutWaterConnectionProperty();
+
 
 
 
     @Override
     public void createTaxDetailsForAllActivePropertiesForThisMonth() throws Exception {
+         Tax taxForPropertyWithWaterConnection = iTaxService.getTaxForWaterConnectedProperty();
+         Tax taxForPropertyWithoutWaterConnection = iTaxService.getTaxForWithoutWaterConnectionProperty();
 
         SchedularAudit schedularAudit = iSchedularAuditService.getBySchedularName(URLConstants.PROPERTY_TAX_DETAILS_SCHEDULAR);
         if(schedularAudit == null){
@@ -55,6 +57,8 @@ public class ScheduledServices implements IScheduledServices{
         }
     }
     void logicOfTaxDetailsCreationForAllProperties(){
+        Tax taxForPropertyWithWaterConnection = iTaxService.getTaxForWaterConnectedProperty();
+        Tax taxForPropertyWithoutWaterConnection = iTaxService.getTaxForWithoutWaterConnectionProperty();
         List<Property> properties= propertyService.getAllActiveProperties();
         List<TaxDetail> taxDetailsOfThisMonth = new ArrayList<>();
         for (Property p : properties) {

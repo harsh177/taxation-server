@@ -6,6 +6,7 @@ import com.taxation.entity.ApplicationResponse;
 import com.taxation.model.Person;
 import com.taxation.model.Property;
 import com.taxation.model.TaxDetail;
+import com.taxation.service.impl.ScheduledServices;
 import com.taxation.service.impl.TaxDetailsService;
 import com.taxation.service.interfaces.IPersonService;
 import com.taxation.service.interfaces.IPropertyService;
@@ -31,6 +32,9 @@ public class TaxDetailsController {
 
     @Autowired
     ITaxDetailsService taxDetailsService;
+
+
+    //IScheduledServices scheduledServices = new ScheduledServices();
 
     @RequestMapping(value = URLConstants.TAX_DETAILS_BY_PROPERTY, method = RequestMethod.GET, produces = ApplicationConstants.APP_JSON)
     public ResponseEntity<ApplicationResponse> getTaxDetailsByPropertyId(@PathVariable Integer propertyId) {
