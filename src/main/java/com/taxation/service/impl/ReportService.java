@@ -43,7 +43,7 @@ public class ReportService {
 		for(int	i=0;i<taxDetails.size();i++){
 			TaxDetail	td	=	taxDetails.get(i);
 			Property	p=td.getProperty();
-			empinfo.put(counter+"", new Object[] { p.getSamagraId(), p.getCustomUniqueId(), p.getSubHolder(),p.getResidentName(),td.getAmount(),String.valueOf(td.getLastTaxPaidOn()==null?"":td.getLastTaxPaidOn()) });
+			empinfo.put(String.valueOf(counter), new Object[] { p.getSamagraId(), p.getCustomUniqueId(), p.getSubHolder(),p.getResidentName(),td.getAmount(),String.valueOf(td.getLastTaxPaidOn()==null?"":td.getLastTaxPaidOn()) });
 			counter++;
 		}
 		
@@ -57,7 +57,7 @@ public class ReportService {
 		for(int	i=0;i<properties.size();i++){
 			Property	p	=	properties.get(i);
 			
-			empinfo.put(counter+"", new Object[] { p.getPropertyNumber(),p.getArea(),p.getVillage(),p.getDistrict(),p.getTehsil(),p.getPincode(),p.getCustomUniqueId(),p.getSamagraId(),p.getSubHolder(),p.getResidentName(),p.getWaterConnected()?"YES":"NO",p.getTransferredToSamagraId()==null?"":p.getTransferredToSamagraId()});
+			empinfo.put(String.valueOf(counter), new Object[] { p.getPropertyNumber(),p.getArea(),p.getVillage(),p.getDistrict(),p.getTehsil(),p.getPincode(),p.getCustomUniqueId(),p.getSamagraId(),p.getSubHolder(),p.getResidentName(),p.getWaterConnected()?"YES":"NO",p.getTransferredToSamagraId()==null?"":p.getTransferredToSamagraId()});
 			counter++;
 		}
 		

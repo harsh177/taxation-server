@@ -77,6 +77,7 @@ public class PropertyController {
 
 	@RequestMapping(value = URLConstants.PROPERTY_GET_BY_PHONE_OR_SAMAGRA_OR_UNIQUE, method = RequestMethod.POST, consumes = ApplicationConstants.APP_JSON)
 	public ResponseEntity<ApplicationResponse> getPropertyByPhoneOrSamagraOrUniqueId(@RequestBody FindByPhoneOrSamagraOrUniqueRequest findByPhoneOrSamagraRequest) throws Exception {
+		FindByPhoneOrSamagraResponse findByPhoneOrSamagraResponse= new FindByPhoneOrSamagraResponse();
 		String phoneNumber = findByPhoneOrSamagraRequest.getPhoneNumber();
 		String samagraId = findByPhoneOrSamagraRequest.getSamagraId();
 		String uniqueId = findByPhoneOrSamagraRequest.getCustomUniqueId();
@@ -88,7 +89,11 @@ public class PropertyController {
 		}else	if(uniqueId !=null && !uniqueId.isEmpty()){
 			properties	=	propertyService.findByUniqueId(uniqueId);
 		}
-		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(properties,true,"Person and Related Properties Fetched"), HttpStatus.OK);
+		if(properties.size()>0){
+			findByPhoneOrSamagraResponse.setPerson(personService.getPersonBySamagraId(properties.get(0).getSamagraId()));
+		}
+		findByPhoneOrSamagraResponse.setPropertyList(properties);
+		return new ResponseEntity<ApplicationResponse>(new ApplicationResponse(findByPhoneOrSamagraResponse,true,"Person and Related Properties Fetched"), HttpStatus.OK);
 	}
 
 
